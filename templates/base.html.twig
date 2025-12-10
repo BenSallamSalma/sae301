@@ -13,6 +13,71 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block nav %}
+            <nav>
+                <ul>
+                    <li><a href="/"><img src="../assets/images/logo.svg" alt="logo Aurora"></a></li>
+                </ul>     
+                <ul>  
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/services">Nos Services</a></li>
+                    <li><a href="/actualites">Actualités</a></li>
+                    <li><a href="/histoire">Notre histoire</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/reservation">Réservation</a></li>
+                    <li class="dropdown">
+                        <a href="/profil" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            <img src="../assets/images/conne.svg" alt="Connexion/Inscription">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('app_profil_connexion') }}">Connexion</a></li>
+                            <li><a href="{{ path('app_profil_inscription') }}">Inscription</a></li>
+                        </ul>
+                    </li>
+                </ul>   
+            </nav>
+            {% endblock %}
+
+            {% block main %}
+
+            {% endblock %}
+
+            {% block footer %}
+                <footer>
+                    <div class="footer-part-1">
+                        <h3>Informations légales</h3>
+                        <div>
+                            <a href="#">Mentions légales</a>
+                            <a href="#">Conditions d'utilisation</a>
+                            <a href="#">Politique de confidentialité</a>
+                            <a href="#">Politique de cookies</a>
+                        </div>
+                    </div>
+                    <div class="footer-part-2">
+                        <h3>Consultations</h3>
+                        <div>
+                            <a href="#">Avis client</a>
+                            <a href="#">Tous nos experts</a>
+                        </div>
+                    </div>
+                    <div class="footer-part-3">
+                        <h3>Service client</h3>
+                        <div>
+                            <a href="#">066485541</a>
+                            <a href="#">exampledemail@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-part-4">
+                        <img src="../assets/images/insta.svg" alt="logo instagram">
+                        <img src="../assets/images/facebook.svg" alt="logo facebook">
+                        <img src="../assets/images/Twitter.svg" alt="logo X">
+                        <img src="../assets/images/Tiktok.svg" alt="logo Tiktok">
+                    </div>
+                    <a id="FAQ" href="#">FAQ</a>
+
+                </footer>
+            {% endblock %}
+        {% endblock %}
     </body>
 </html>

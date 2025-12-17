@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block main %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/ws301/src/Controller/ProfilController.php</code></li>
-        <li>Your template at <code>/var/www/ws301/templates/profil/index.html.twig</code></li>
-    </ul>
+<h1>Se connecter</h1>
+<form action="{{ path('app_profil_connexion') }}" method="post">
+    <label for="email">Votre mail</label>
+    <input type="email" id="email" name="email" placeholder="Écrire ici...">
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" placeholder="Écrire ici...">
+    <button type="submit">Se connecter</button>
+    <a href="{{ path('app_profil_inscription') }}">Mot de passe oublié ?</a>
+</form>
+<div>
+    <p>Vous n’avez pas encore de compte ? Créez-en un et bénéficiez de <span>-15%</span> sur votre première commande !</p>
+    <button type="submit">Créer un compter</button>
 </div>
-
 {% endblock %}

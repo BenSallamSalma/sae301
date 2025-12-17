@@ -9,6 +9,10 @@ html {
     html {
       font-size: 13px; } }
 
+.background-disgusting {
+  background-color: #149700;
+  color: #ffffff; }
+
 html, body {
   height: 100%;
   margin: 0;

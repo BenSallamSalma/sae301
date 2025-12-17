@@ -1,21 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block main %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/ws301/src/Controller/ProfilController.php</code></li>
-        <li>Your template at <code>/var/www/ws301/templates/profil/index.html.twig</code></li>
-    </ul>
-</div>
-
+<h1>Inscription</h1>
+<form action="{{ path('app_profil_inscription') }}" method="post">
+    <fieldset>
+    <label for="firstname">Prénom</label>
+    <input type="text" id="firstname" name="firstname" placeholder="Écrire ici...">
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" placeholder="Écrire ici...">
+    <label for="email">Votre mail</label>
+    <input type="email" id="email" name="email" placeholder="Écrire ici...">
+    <label for="pseudo">Pseudonyme (pas de chiffres/nombres/caractères spéciaux)</label>
+    <input type="text" id="pseudo" name="pseudo" placeholder="Écrire ici...">
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" placeholder="Écrire ici...">
+    <label for="password_confirm">Confirmer le mot de passe</label>
+    <input type="password" id="password_confirm" name="password_confirm" placeholder="Écrire ici...">
+    </fieldset>
+    <div>
+        <h2>Choix de la photo de profil</h2>
+        <fieldset>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        <input type="radio" id="photo_profil" name="photo_profil" >
+        <label for="photo_profil"><img src="{{ asset('images/photo_profil.png') }}" alt="Photo de profil"></label>
+        </fieldset>
+    </div>  
+    <fieldset>
+    <label for="age">Âge</label>
+    <input type="number" id="age" name="age" placeholder="Votre âge">
+    </fieldset>
+    <fieldset>
+    <legend>Sexe</legend>
+    <input type="radio" id="sexe" name="sexe" value="M">
+    <label for="sexe">Masculin</label>
+    <input type="radio" id="sexe" name="sexe" value="F">
+    <label for="sexe">Féminin</label>
+    <input type="radio" id="sexe" name="sexe" value="A">
+    <label for="sexe">Autre</label>
+    </fieldset>
+    <fieldset>
+        <input type="radio" id="newsletter" name="newsletter">
+        <label for="newsletter">Inscription à la newsletter (optionnel)</label>
+    </fieldset>
+    <button type="submit">Créer un compte</button>
+</form>
 {% endblock %}

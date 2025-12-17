@@ -3,234 +3,124 @@
 {% block title %}Accueil{% endblock %}
 
 {% block main %}
-<div class="banniere relative w-full min-h-screen h-auto flex items-center justify-center overflow-hidden sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
-    <img src="{{ asset('images/banniere.png') }}" alt="Bannière" class="min-h-[60vh] block object-contain object-center sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
+<div class="banniere relative w-full min-h-screen h-auto flex items-center justify-center overflow-hidden sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]" style="background: #9286EA;">
+    <img src="{{ asset('images/banniere.png') }}" alt="Bannière" class="absolute inset-0 w-full h-full object-cover z-0 min-h-[60vh] sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
     <div class="banniere-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10 w-full max-w-full p-4 sm:p-3 xs:p-2">
-        <h1 class="m-0 text-white text-[clamp(2rem,5vw,4rem)] font-bold drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)] animate-fadeIn sm:text-[clamp(1.5rem,6vw,2.5rem)] xs:text-[clamp(1.25rem,7vw,2rem)]">Divination</h1>
+        <h1 style="color: white; font-size: 60px; font-family: 'CRONDE', sans-serif; font-weight: 400; letter-spacing: 9px;">DIVINATION</h1>
     </div>
 </div>
-<div class="informations bg-nav-bg flex items-start justify-center gap-12 py-16 px-8 w-full box-border sm:flex-col sm:gap-8 sm:py-12 sm:px-6 xs:py-8 xs:px-4 xs:gap-6">
-    <div class="informations-image flex-1 flex items-center justify-center overflow-hidden rounded-t-[50%] sm:flex-[1_1_100%] sm:max-w-full sm:w-full">
-        <img src="{{ asset('images/labubu_luffy.png') }}" alt="Informations" class="w-[70%] h-auto block object-cover transition-transform duration-300 hover:scale-105">
+<div class="informations bg-nav-bg flex items-center justify-center gap-12 py-16 px-8 w-full box-border relative overflow-hidden sm:flex-col sm:gap-8 sm:py-12 sm:px-6 xs:py-8 xs:px-4 xs:gap-6">
+    <div class="informations-image flex-1 flex items-center justify-center overflow-hidden rounded-t-[50%] z-10 sm:flex-[1_1_100%] sm:max-w-full sm:w-full">
+        <img src="{{ asset('images/blanc.png') }}" alt="Informations" class="w-[70%] h-auto block object-cover transition-transform duration-300 hover:scale-105">
     </div>
-    <div class="informations-content flex-1 px-4 sm:flex-[1_1_100%] sm:p-0 sm:text-center xs:p-0">
-        <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold m-0 mb-6 text-[#333] xs:text-2xl">Qui sommes-nous ?</h2>
-        <p class="text-[clamp(1rem,2vw,1.125rem)] leading-[1.8] text-[#666] m-0 mb-4 xs:text-[0.95rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    </div>
-</div>
-<div>
-    <h1>Ce que l'on propose</h1>
-    <div>
-        <div>
-            <h2>La divination</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-        </div>
-        <img src="{{ asset('images/divination.png') }}" alt="Divination">
-    </div>
-    <div>
-        <img src="{{ asset('images/purification.png') }}" alt="Purification">
-        <div>
-            <h2>La purification</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h2>L'astrologie</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-        </div>
-        <img src="{{ asset('images/astrologie.png') }}" alt="Astrologie">
-    </div>
-    <div>
-        <img src="{{ asset('images/lithothérapie.png') }}" alt="Lithothérapie">
-        <div>
-            <h2>La lithothérapie</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-        </div>
+    <div class="informations-content flex-1 px-4 z-10 sm:flex-[1_1_100%] sm:p-0 sm:text-center xs:p-0">
+        <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold m-0 mb-6 text-white xs:text-2xl">Qui sommes-nous ?</h2>
+        <p class="text-[clamp(1rem,2vw,1.125rem)] leading-[1.8] text-white m-0 mb-4 xs:text-[0.95rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 </div>
-<div>
-    <h1>Cliquez pour découvrir votre oracle du jour</h1>
-    <img src="{{ asset('images/carte_tarot.png') }}" alt="Carte de Tarot">
-</div>
-<div>
-    <h1>Newsletter</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    <div>
-        <img src="{{ asset('images/article.png') }}" alt="Article">
-        <div>
-            <h2>Titre de l'article</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <a href="#">Lire l'article</a> 
-        </div>
-    </div>
-    <div>
-        <img src="{{ asset('images/article.png') }}" alt="Article">
-        <div>
-            <h2>Titre de l'article</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <a href="#">Lire l'article</a> 
-        </div>
-    </div>
-    <div>
-        <img src="{{ asset('images/article.png') }}" alt="Article">
-        <div>
-            <h2>Titre de l'article</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <a href="#">Lire l'article</a> 
-        </div>
-    </div>
-    <div>
-        <img src="{{ asset('images/article.png') }}" alt="Article">
-        <div>
-            <h2>Titre de l'article</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            <a href="#">Lire l'article</a> 
-        </div>
-    </div>
-</div>
+<section class="what-we-offer py-16 px-8 bg-light-background">
+    <h2 class="section-title text-center text-3xl font-bold mb-12">Ce que l'on propose</h2>
 
-<div class="calendrier-container w-full max-w-4xl mx-auto my-12 px-4 sm:px-2">
-    <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-4 border border-gray-200">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center sm:text-xl">Calendrier des réservations</h2>
-        <div class="calendrier-wrapper">
-            <div class="flex items-center justify-between mb-4">
-                <button id="prev-month" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 text-gray-700 hover:text-gray-900">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <h3 id="current-month" class="text-xl font-semibold text-gray-800 sm:text-lg"></h3>
-                <button id="next-month" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 text-gray-700 hover:text-gray-900">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+    <!-- La divination -->
+    <div class="offer-item flex items-center justify-center gap-12 mb-16 sm:flex-col sm:gap-8">
+        <div class="offer-content flex-1 text-left sm:text-center">
+            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La divination</h3>
+            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+        <div class="offer-image flex-1 flex justify-center">
+            <img src="{{ asset('images/crystal ball no watermark.png') }}" alt="Divination" class="max-w-[35%] h-auto">
+        </div>
+    </div>
+
+    <img src="{{ asset('images/pageseperator.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+
+    <!-- La purification -->
+    <div class="offer-item flex items-center justify-center gap-12 mb-16 sm:flex-col-reverse sm:gap-8">
+        <div class="offer-image flex-1 flex justify-center">
+            <img src="{{ asset('images/purification.png') }}" alt="Purification" class="max-w-[35%] h-auto">
+        </div>
+        <div class="offer-content flex-1 text-left sm:text-center">
+            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La purification</h3>
+            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+    </div>
+
+    <img src="{{ asset('images/pageseperator.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+
+    <!-- L'astrologie -->
+    <div class="offer-item flex items-center justify-center gap-12 mb-16 sm:flex-col sm:gap-8">
+        <div class="offer-content flex-1 text-left sm:text-center">
+            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">L'astrologie</h3>
+            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+        <div class="offer-image flex-1 flex justify-center">
+            <img src="{{ asset('images/hand_with_planets.png') }}" alt="Astrologie" class="max-w-[35%] h-auto">
+        </div>
+    </div>
+
+    <img src="{{ asset('images/pageseperator.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+
+    <!-- La lithothérapie -->
+    <div class="offer-item flex items-center justify-center gap-12 sm:flex-col-reverse sm:gap-8">
+        <div class="offer-image flex-1 flex justify-center">
+            <img src="{{ asset('images/rockies.png') }}" alt="Lithothérapie" class="max-w-[35%] h-auto">
+        </div>
+        <div class="offer-content flex-1 text-left sm:text-center">
+            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La lithothérapie</h3>
+            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+    </div>
+</section>
+
+<section class="oracle-section bg-dark-grey-background py-16 px-8 text-center text-white relative overflow-hidden">
+    <h2 class="section-title text-3xl font-bold mb-8 relative z-10">Cliquez pour découvrir votre oracle du jour !</h2>
+    <div class="oracle-card-container relative w-64 h-96 mx-auto mb-8 cursor-pointer transform transition-transform duration-300 hover:scale-105 z-10">
+        <img src="{{ asset('images/Aurora_carte-mystere.png') }}" alt="Carte de Tarot" class="w-full h-full object-contain">
+    </div>
+</section>
+
+<section class="newsletter-section py-16 px-8 bg-light-background">
+    <h2 class="section-title text-center text-3xl font-bold mb-12">Newsletter</h2>
+    <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+
+    <div class="articles-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="{{ asset('images/rockies.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+            <div class="p-2 bg-dark-grey-background text-white text-left">
+                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
+                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
             </div>
-            <div class="grid grid-cols-7 gap-2 mb-2">
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Dim</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Lun</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Mar</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Mer</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Jeu</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Ven</div>
-                <div class="text-center text-sm font-semibold text-gray-600 py-2 sm:text-xs">Sam</div>
+        </div>
+        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="{{ asset('images/rocks.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+            <div class="p-2 bg-dark-grey-background text-white text-left">
+                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
+                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
             </div>
-            <div id="calendar-grid" class="grid grid-cols-7 gap-2">
-                <!-- Les jours seront générés par JavaScript -->
+        </div>
+        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="{{ asset('images/hand_with_planets.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+            <div class="p-2 bg-dark-grey-background text-white text-left">
+                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
+                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
             </div>
-            <div class="mt-6 pt-4 border-t border-gray-200">
-                <p class="text-sm text-gray-600 text-center mb-2">Date sélectionnée :</p>
-                <input type="date" id="reservation-date" name="date_reservation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center text-gray-700 sm:text-sm">
+        </div>
+        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="{{ asset('images/phases_de_la_lune.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+            <div class="p-2 bg-dark-grey-background text-white text-left">
+                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
+                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
             </div>
         </div>
     </div>
-</div>
+    <div class="btn-more-articles-wrapper">
+        <a href="#" class="btn-more-articles">Plus d'articles</a>
+    </div>
+</section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const calendarGrid = document.getElementById('calendar-grid');
-    const currentMonthElement = document.getElementById('current-month');
-    const prevMonthBtn = document.getElementById('prev-month');
-    const nextMonthBtn = document.getElementById('next-month');
-    const dateInput = document.getElementById('reservation-date');
-    
-    let currentDate = new Date();
-    let selectedDate = null;
-    
-    const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 
-                       'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-    
-    function renderCalendar() {
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-        
-        currentMonthElement.textContent = `${monthNames[month]} ${year}`;
-        
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const daysInMonth = lastDay.getDate();
-        const startingDayOfWeek = firstDay.getDay();
-        
-        calendarGrid.innerHTML = '';
-        
-        // Jours vides au début
-        for (let i = 0; i < startingDayOfWeek; i++) {
-            const emptyDay = document.createElement('div');
-            emptyDay.className = 'aspect-square';
-            calendarGrid.appendChild(emptyDay);
-        }
-        
-        // Jours du mois
-        const today = new Date();
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dayElement = document.createElement('button');
-            const date = new Date(year, month, day);
-            
-            dayElement.className = 'aspect-square flex items-center justify-center rounded-lg transition-all duration-200 font-medium text-sm sm:text-xs';
-            
-            // Styles selon l'état du jour
-            if (date.toDateString() === today.toDateString()) {
-                dayElement.className += ' bg-blue-500 text-white font-bold';
-            } else if (date < today) {
-                dayElement.className += ' bg-gray-100 text-gray-400 cursor-not-allowed';
-                dayElement.disabled = true;
-            } else {
-                dayElement.className += ' bg-gray-50 text-gray-700 hover:bg-blue-100 hover:text-blue-700';
-            }
-            
-            if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
-                dayElement.className += ' ring-2 ring-blue-500 ring-offset-2';
-            }
-            
-            dayElement.textContent = day;
-            dayElement.addEventListener('click', function() {
-                if (!dayElement.disabled) {
-                    selectedDate = date;
-                    dateInput.value = formatDateForInput(date);
-                    renderCalendar();
-                }
-            });
-            
-            calendarGrid.appendChild(dayElement);
-        }
-    }
-    
-    function formatDateForInput(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    }
-    
-    prevMonthBtn.addEventListener('click', function() {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar();
-    });
-    
-    nextMonthBtn.addEventListener('click', function() {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar();
-    });
-    
-    dateInput.addEventListener('change', function() {
-        const inputDate = new Date(this.value);
-        if (!isNaN(inputDate.getTime())) {
-            selectedDate = inputDate;
-            currentDate = new Date(inputDate.getFullYear(), inputDate.getMonth(), 1);
-            renderCalendar();
-        }
-    });
-    
-    renderCalendar();
-});
-</script>
+
 {% endblock %}

@@ -1,20 +1,427 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServicesController!{% endblock %}
+{% block title %}Nos services{% endblock %}
 
 {% block main %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section class="services-page">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+  {# bandeau violet derrière le titre (comme ta maquette) #}
+  <div class="services-top-band">
+    <header class="services-hero">
+      <h1 class="services-title">NOS SERVICES</h1>
+    </header>
+  </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/ws301/src/Controller/ServicesController.php</code></li>
-        <li>Your template at <code>/var/www/ws301/templates/services/index.html.twig</code></li>
-    </ul>
-</div>
+  {# Section gris foncé avec texte et image #}
+  <section class="services-intro-section">
+    <div class="services-intro-container">
+      <div class="services-intro">
+        Chez Aurora, nous proposons des services de divination pensés pour s'adapter à chaque besoin,
+        que ce soit à domicile ou à distance. Toutes nos consultations sont réalisées par des spécialistes
+        rigoureusement sélectionnés pour leur sérieux, leur écoute et leur expertise.<br>
+        Les paiements sont sécurisés et peuvent être effectués en une ou plusieurs fois.
+        Si vous n'êtes pas satisfait de votre consultation, une solution de remboursement vous sera proposée,
+        afin de garantir une expérience de confiance et de qualité.
+      </div>
+
+      <div class="services-intro-visual">
+        <img src="{{ asset('images/blanc.png') }}" alt="Services Aurora">
+      </div>
+    </div>
+  </section>
+
+  {# ===================== A DOMICILE ===================== #}
+  <section class="services-section">
+    <div class="section-divider">
+        <img src="{{ asset('images/pageseperator_white.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+      <h2 class="section-title center">A DOMICILE</h2>
+    </div>
+
+    <p class="section-desc center">
+      Nos services à domicile vous permettent de bénéficier d’une consultation personnalisée directement chez vous.
+      Le praticien se déplace à votre adresse au créneau convenu, en toute discrétion, cette formule est idéale
+      pour celles et ceux qui recherchent un contact humain, une écoute approfondie et une expérience spirituelle immersive.
+    </p>
+
+    <h3 class="sub-title">DIVINATION A DOMICILE</h3>
+
+    <div class="practitioners-grid">
+      {# Carte 1 #}
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/martin.png') }}" alt="Martin l'OMNISCIENT">
+        </div>
+
+        <div class="card-body">
+          <h4 class="card-name">Martin l'OMNISCIENT</h4>
+          <div class="card-role">Voyant</div>
+
+          <p class="card-text">
+            À l’écoute et détendu, Martin vous guide dans une atmosphère conviviale à l’aide de son chat ‘Gipiti’ mystique.
+          </p>
+
+          <p class="card-quote">
+            “C’est un génie incompris. Il a une sagesse irréprochable avec une touche d’humour qui m’a immédiatement mit à l’aise.”
+          </p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+
+      {# Carte 2 #}
+      <article class="practitioner-card">
+        <div class="card-media" aria-hidden="true"></div>
+
+        <div class="card-body">
+          <h4 class="card-name">Guillaume le guide spirituel</h4>
+          <div class="card-role">Prophète</div>
+
+          <p class="card-text">
+            Direct et inspiré, Guillaume propose des consultations sans détour, où la lucidité s'accompagne d'un humour fin et d'une touche de vision artistique.
+          </p>
+
+          <p class="card-quote">
+            “C’est un petit homme très professionnel, il m’a redonné espoir en ma carrière artistique. Il m’a dit que je méritais la... La réussite.“
+          </p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {# ===================== PURIFICATION ===================== #}
+  <section class="services-section">
+    <h3 class="sub-title">PURIFICATION</h3>
+
+    <div class="practitioners-grid">
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/julius.png') }}" alt="Julius Sabaterus">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Julius Sabaterus</h4>
+          <div class="card-role">Mystique</div>
+
+          <p class="card-text">
+            Mystique moderne, Julius considère chaque purification comme une nouvelle partie de jeu vidéo : nettoyage des énergies, recentrage et retour à l’essentiel avant le prochain niveau.
+          </p>
+          <p class="card-quote">"J'ai immédiatement ressentie à sa présence que c'était un homme aux énergies pures et sacrées."</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">5/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/gatrice.png') }}" alt="Gatrice Pomme">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Gatrice Pomme</h4>
+          <div class="card-role">Medium</div>
+
+          <p class="card-text">
+            Médium méthodique, Gatrice explore les énergies invisibles comme une véritable banque de données afin d’identifier, nettoyer et réorganiser les flux perturbés.
+          </p>
+          <p class="card-quote">
+            “Dès qu’il a prononcé des phrases sur le ‘docker exec’ j’ai senti que toutes les forces négatives de ma maison sont parties...”
+          </p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {# ===================== LITHOTHERAPIE ===================== #}
+  <section class="services-section">
+    <h3 class="sub-title">LITHOTHERAPIE</h3>
+
+    <div class="practitioners-grid">
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/castro.png') }}" alt="Castro Caillous">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Castro Caillous</h4>
+          <div class="card-role">Lithomacien</div>
+
+          <p class="card-text">
+            Castro vous accompagne avec douceur et bienveillance, en utilisant les pierres comme un langage universel au service de l’harmonie et du bien-être.
+          </p>
+          <p class="card-quote">“Il est très gentil et souriant, très bienveillant, il m’a même appris le nom des cristaux en italien.“</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/marine.png') }}" alt="Marine la Valkyrie Celeste">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Marine la Valkyrie Celeste</h4>
+          <div class="card-role">Lithomacien</div>
+
+          <p class="card-text">
+            Lithomancienne intuitive et lumineuse, Marine mêle douceur, sensibilité et créativité pour proposer des accompagnements uniques et inspirants.
+          </p>
+          <p class="card-quote">“Je la recommande, à travers ses nombreuses méthodes uniques j’ai pu ressentir son énergie créative et bienveillante“</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {# ===================== A DISTANCE ===================== #}
+  <section class="services-section">
+    <div class="section-divider">
+        <img src="{{ asset('images/pageseperator_white.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+      <h2 class="section-title center">A DISTANCE</h2>
+    </div>
+
+    <p class="section-desc center">
+      Nos services à distance vous offrent la possibilité de consulter nos spécialistes où que vous soyez, en toute simplicité.
+      Par appels, visioconférences ou échanges par mail, vous bénéficiez d’un accompagnement flexible et personnalisé,
+      adapté à votre rythme et à vos disponibilités, tout en conservant la qualité d’écoute et la confidentialité d’une consultation Aurora.
+    </p>
+
+    <h3 class="sub-title">DIVINATION A DISTANCE</h3>
+
+    <div class="practitioners-grid">
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/anthony.png') }}" alt="Parolier Devin Anthony">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Parolier Devin Anthony</h4>
+          <div class="card-role">Voyant</div>
+
+          <p class="card-text">
+            Maître des mots et de l’échange, Anthony propose des consultations dynamiques, guidées par une communication claire, précise et impactante.
+          </p>
+          <p class="card-quote">“Très flexible en terme de moyens de contacter, à l’écoute et réfléchi.”</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/romain.jpg') }}" alt="Conscience astrale Romain">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Conscience astrale Romain</h4>
+          <div class="card-role">Oracle</div>
+
+          <p class="card-text">
+            Référent incontournable, Romain intervient avec assurance et justesse, guidé par une expérience solide et une vision globale des pratiques spirituelles, il est respecté par tous.
+          </p>
+          <p class="card-quote">"Il sait tout, il fait tout, il a réponse à tout."</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">5/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="sub-title">ASTROLOGIE</h3>
+
+    <div class="practitioners-grid">
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/meuzerre.png') }}" alt="Meuzerre le gardien borgne du Bifröst">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Meuzerre le gardien borgne du Bifröst</h4>
+          <div class="card-role">Astromancien</div>
+
+          <p class="card-text">
+            Créatif et fan du flan, Meuzerre détient son surnom farfelu grâce à ses méthodes uniques & artisanales d’astromancie qu’il pratique dans son ‘fabulous lab’.
+          </p>
+          <p class="card-quote">“J’ai eu la chance de prendre une séance avec lui dans le ‘fabulous lab’, tout simplement splendide.“</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">5/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="practitioner-card">
+        <div class="card-media">
+          <img src="{{ asset('images/bigfinger.png') }}" alt="BigFinger Gillius">
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">BigFinger Gillius</h4>
+          <div class="card-role">Astromancien</div>
+
+          <p class="card-text">
+            Gillius BigFinger, l'astromancien international. À travers les astres, il maitrise le passé, le présent et le futur.<br/>Ainsi que le present perfect et le prétérit en anglais.
+          </p>
+          <p class="card-quote">“Il maîtrise bien le sujet, c’est un homme très intéressant doté de beaucoup de culture internationale.”</p>
+
+          <div class="card-rating">
+            <div class="stars" aria-hidden="true">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3116 16L16.6666 4L13.0216 16H1.66663L10.9366 22.615L7.41163 34L16.6666 26.965L25.9366 34L22.4116 22.615L31.6666 16H20.3116Z" fill="#BA68BC"/></svg>
+            </div>
+            <div class="score">4/5 auprès de nos utilisateurs</div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-outline-testimonials" href="#">Accéder aux témoignages</a>
+            <a class="btn-outline-reserve" href="#">Réserver avec cette personne</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+{# ===================== REASSURANCE (bandeau blanc) ===================== #}
+<section class="services-reassurance">
+  <div class="reassurance-container">
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-3.png') }}" alt="">
+      <p>Praticiens selectionnés <br>avec soin.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-1.png') }}" alt="">
+      <p>Paiement sécurisé & 3x sans frais en France dès 60€.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector.png') }}" alt="">
+      <p>Notre équipe vous accompagne et vous guide 24/24 en ligne.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-2.png') }}" alt="">
+      <p>Garantie incluse : <br>Satisfait ou 100% remboursé.</p>
+    </div>
+
+  </div>
+</section>
+
 {% endblock %}

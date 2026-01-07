@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+.histoire {
+  background: #fff;
+}
+
+/* Container responsive */
+.histoire__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HERO */
+.histoire__hero {
+  padding: 90px 0 40px 0;
+  text-align: center;
+}
+
+.histoire__title {
+  margin: 0;
+  font-family: "CRONDE", serif;
+  font-weight: 400;
+  color: #9286EA;
+  font-size: clamp(40px, 6vw, 85px);
+}
+
+/* SECTIONS */
+.histoire__section {
+  padding: clamp(50px, 6vw, 90px) 0;
+
+  &--dark {
+    background: #2E2D3F;
+  }
+
+  &--light {
+    background: #fff;
+  }
+}
+
+/* TITRES */
+.histoire__h2 {
+  margin: 0;
+  font-family: "CRONDE", serif;
+  font-weight: 400;
+  letter-spacing: 2.4px;
+  color: #2E2D3F;
+  font-size: clamp(26px, 3vw, 40px);
+
+  &--white { color: #fff; }
+  &--right { text-align: right; }
+}
+
+.histoire__line {
+  display: block;
+  width: 279px;
+  max-width: 60%;
+  height: 2px;
+  background: #2E2D3F;
+  margin: 12px 0 22px 0;
+
+  &--white { background: #fff; }
+  &--center { margin-left: auto; margin-right: auto; }
+  &--right { margin-left: auto; margin-right: 0; }
+}
+
+/* SPLIT */
+.histoire__split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(25px, 4vw, 70px);
+  align-items: center;
+
+  &--reverse {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+
+/* Text */
+.histoire__text {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #2E2D3F;
+
+  p { margin: 0 0 16px 0; }
+
+  &--white {
+    color: #fff;
+  }
+}
+
+/* Media blocks */
+.histoire__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo placeholder */
+.histoire__logoBox {
+  width: min(358px, 100%);
+  aspect-ratio: 1 / 1;
+  background: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    color: #000;
+  }
+}
+
+/* Big bubble */
+.histoire__bubble {
+  width: min(368px, 100%);
+  aspect-ratio: 368 / 481;
+  background: #fff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    color: #2E2D3F;
+  }
+}
+
+/* Center titles */
+.histoire__centerTitle {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Cards grids */
+.histoire__cards2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(25px, 4vw, 90px);
+}
+
+/* Person */
+.histoire__person {
+  text-align: center;
+}
+
+.histoire__personBubble {
+  width: min(337px, 100%);
+  aspect-ratio: 337 / 440;
+  border-radius: 999px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--purple { background: #9286EA; }
+  &--white { background: #fff; }
+
+  span {
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    color: #fff;
+  }
+
+  &--white span { color: #2E2D3F; }
+}
+
+.histoire__name {
+  margin: 22px 0 10px 0;
+  font-family: "CRONDE", serif;
+  font-weight: 400;
+  letter-spacing: 2.1px;
+  font-size: clamp(22px, 2.4vw, 35px);
+  color: #2E2D3F;
+
+  &--white { color: #fff; }
+}
+
+.histoire__desc {
+  margin: 0 auto;
+  max-width: 520px;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #2E2D3F;
+
+  &--white { color: #fff; }
+}
+
+/* Right side title block */
+.histoire__rightTitle {
+  width: 100%;
+}
+
+/* Map */
+.histoire__map {
+  margin-top: 30px;
+}
+
+.histoire__mapBox {
+  width: 100%;
+  height: clamp(320px, 45vw, 718px);
+  background: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-family: "CRONDE", serif;
+    font-size: clamp(22px, 3vw, 35px);
+    letter-spacing: 2.1px;
+    color: #000;
+  }
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+   ========================= */
+@media (max-width: 900px) {
+  .histoire__split,
+  .histoire__split--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .histoire__cards2 {
+    grid-template-columns: 1fr;
+  }
+
+  .histoire__h2--right {
+    text-align: left;
+  }
+
+  .histoire__line--right {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}

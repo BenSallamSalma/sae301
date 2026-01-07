@@ -1,20 +1,192 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HistoireController!{% endblock %}
+{% block title %}Notre histoire{% endblock %}
 
 {% block main %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section class="histoire">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+  <header class="histoire__hero">
+    <h1 class="histoire__title">Notre histoire</h1>
+  </header>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/ws301/src/Controller/HistoireController.php</code></li>
-        <li>Your template at <code>/var/www/ws301/templates/histoire/index.html.twig</code></li>
-    </ul>
-</div>
+  {# =================== AU COMMENCEMENT =================== #}
+  <section class="histoire__section histoire__section--light">
+    <div class="histoire__container">
+
+      <div class="histoire__split">
+        <div class="histoire__text">
+          <h2 class="histoire__h2">Au commencement</h2>
+          <span class="histoire__line"></span>
+
+          <p>
+            Aurora est née d’un besoin simple : rendre les arts divinatoires plus accessibles,
+            tout en conservant un cadre sérieux, respectueux et transparent. Face à une offre parfois
+            floue ou impersonnelle, nous avons voulu créer un espace où chacun peut trouver une guidance fiable,
+            dans une ambiance rassurante et confidentielle.
+          </p>
+          <p>
+            Dès le départ, notre objectif a été de réunir des praticiens aux approches complémentaires : voyance,
+            astrologie, purification, lithothérapie, afin de proposer un accompagnement complet.
+            Aurora s’adresse à celles et ceux qui veulent décrypter les signes, comprendre les énergies du moment
+            et ouvrir de nouvelles perspectives.
+          </p>
+        </div>
+
+        <div class="histoire__media">
+          <div class="histoire__logoBox" aria-hidden="true">
+            <span>Logo icône</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {# =================== NOS IDEES (SOMBRE) =================== #}
+  <section class="histoire__section histoire__section--dark">
+    <div class="histoire__container">
+
+      <div class="histoire__split histoire__split--reverse">
+        <div class="histoire__media">
+          <div class="histoire__bubble">
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="histoire__text histoire__text--white">
+          <h2 class="histoire__h2 histoire__h2--white">Nos idées</h2>
+          <span class="histoire__line histoire__line--white"></span>
+
+          <p>
+            Nous croyons que la divination n’est pas une promesse de certitudes, mais un outil d’éclairage.
+            Elle permet d’observer les tendances, de mettre des mots sur des ressentis, et de prendre du recul
+            face aux choix importants. Chaque consultation est pensée comme un moment d’écoute, de réflexion
+            et de recentrage.
+          </p>
+          <p>
+            Aurora défend une approche moderne et responsable : des spécialistes sélectionnés, une expérience
+            personnalisée, et des formats adaptés à tous (à domicile ou à distance). Notre ambition est d’offrir
+            une guidance accessible, sans jugement, où la spiritualité se vit avec bienveillance, clarté et confiance.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {# =================== NOS FONDATEURS =================== #}
+  <section class="histoire__section histoire__section--light">
+    <div class="histoire__container">
+
+      <div class="histoire__centerTitle">
+        <h2 class="histoire__h2">Nos fondateurs</h2>
+        <span class="histoire__line histoire__line--center"></span>
+      </div>
+
+      <div class="histoire__cards2">
+        <article class="histoire__person">
+          <div class="histoire__personBubble histoire__personBubble--purple">
+            <span>Photo</span>
+          </div>
+          <h3 class="histoire__name">Salma BEN SALLAM</h3>
+          <p class="histoire__desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+          </p>
+        </article>
+
+        <article class="histoire__person">
+          <div class="histoire__personBubble histoire__personBubble--purple">
+            <span>Photo</span>
+          </div>
+          <h3 class="histoire__name">Vivian ANTOINE</h3>
+          <p class="histoire__desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+          </p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  {# =================== MEMBRES (SOMBRE) =================== #}
+  <section class="histoire__section histoire__section--dark">
+    <div class="histoire__container">
+
+      <div class="histoire__centerTitle">
+        <h2 class="histoire__h2 histoire__h2--white">Membres de notre groupe</h2>
+        <span class="histoire__line histoire__line--white histoire__line--center"></span>
+      </div>
+
+      <div class="histoire__cards2">
+        <article class="histoire__person">
+          <div class="histoire__personBubble histoire__personBubble--white">
+            <span>Photo</span>
+          </div>
+          <h3 class="histoire__name histoire__name--white">Lauren LAMOUREUX</h3>
+          <p class="histoire__desc histoire__desc--white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+          </p>
+        </article>
+
+        <article class="histoire__person">
+          <div class="histoire__personBubble histoire__personBubble--white">
+            <span>Photo</span>
+          </div>
+          <h3 class="histoire__name histoire__name--white">Mush BIEGA</h3>
+          <p class="histoire__desc histoire__desc--white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+          </p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  {# =================== LA DIVINATION (CLAIR) =================== #}
+  <section class="histoire__section histoire__section--light">
+    <div class="histoire__container">
+
+      <div class="histoire__split">
+        <div class="histoire__text">
+          <h2 class="histoire__h2">La divination</h2>
+          <span class="histoire__line"></span>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <div class="histoire__media">
+          <div class="histoire__rightTitle">
+            <h2 class="histoire__h2 histoire__h2--right">Nos idées</h2>
+            <span class="histoire__line histoire__line--right"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {# =================== CARTE =================== #}
+  <section class="histoire__section histoire__section--light">
+    <div class="histoire__container">
+
+      <div class="histoire__centerTitle">
+        <h2 class="histoire__h2">Où nous trouver :</h2>
+        <span class="histoire__line histoire__line--center"></span>
+      </div>
+
+      <div class="histoire__map">
+        <div class="histoire__mapBox">
+          <span>Carte</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</section>
 {% endblock %}

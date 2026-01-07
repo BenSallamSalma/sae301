@@ -3,17 +3,78 @@
 {% block title %}Connexion{% endblock %}
 
 {% block main %}
-<h1>Se connecter</h1>
-<form action="{{ path('app_profil_connexion') }}" method="post">
-    <label for="email">Votre mail</label>
-    <input type="email" id="email" name="email" placeholder="Écrire ici...">
-    <label for="password">Mot de passe</label>
-    <input type="password" id="password" name="password" placeholder="Écrire ici...">
-    <button type="submit">Se connecter</button>
-    <a href="{{ path('app_profil_inscription') }}">Mot de passe oublié ?</a>
-</form>
-<div>
-    <p>Vous n’avez pas encore de compte ? Créez-en un et bénéficiez de <span>-15%</span> sur votre première commande !</p>
-    <button type="submit">Créer un compter</button>
+<main>
+<div class="auth-page">
+    <div class="container">
+        
+        {# --- HEADER --- #}
+        <header class="auth-header">
+            <h1>Se connecter</h1>
+            <div class="title-underline"></div>
+        </header>
+
+        {# --- BLOC CONNEXION --- #}
+        <section class="auth-card-container">
+            <div class="auth-card">
+                <form action="{{ path('app_profil_connexion') }}" method="post" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Votre Mail</label>
+                        <input type="email" id="email" name="email" placeholder="Ecrire ici..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="Ecrire ici..." required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Se connecter</button>
+                        <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        {# --- BLOC INSCRIPTION (Promotion) --- #}
+        <section class="promo-registration">
+            <div class="promo-box">
+                <p>
+                    Vous n’avez pas encore de compte ? Créez-en un et bénéficiez de 
+                    <span class="discount">-15%</span> sur votre première commande !
+                </p>
+                <a href="{{ path('app_profil_inscription') }}" class="btn-outline">Créer un compte</a>
+            </div>
+        </section>
+
+
+    </div>
 </div>
+{# ===================== REASSURANCE (bandeau blanc) ===================== #}
+<section class="services-reassurance">
+  <div class="reassurance-container">
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-3.png') }}" alt="">
+      <p>Praticiens selectionnés <br>avec soin.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-1.png') }}" alt="">
+      <p>Paiement sécurisé & 3x sans frais en France dès 60€.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector.png') }}" alt="">
+      <p>Notre équipe vous accompagne et vous guide 24/24 en ligne.</p>
+    </div>
+
+    <div class="reassurance-item">
+      <img class="reassurance-icon" src="{{ asset('images/Vector-2.png') }}" alt="">
+      <p>Garantie incluse : <br>Satisfait ou 100% remboursé.</p>
+    </div>
+
+  </div>
+</section>
+</main>
+
 {% endblock %}

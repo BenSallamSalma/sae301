@@ -3,44 +3,185 @@
 {% block title %}Réservation{% endblock %}
 
 {% block main %}
-<h1>Réserver une séance</h1>
-<form action="{{ path('app_reservation') }}" method="post">
-    <fieldset>
-        <legend>Informations</legend>
-        <label for="firstname">Prénom</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Écrire ici...">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Écrire ici...">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Écrire ici...">
-    </fieldset>
-    <fieldset>
-    <legend>Date</legend>
-    <input type="date" id="date" name="date">
-        <label for="time">Heure</label>
-        <input type="time" id="time" name="time">
-    </fieldset>
-    <fieldset>
-        <legend>Sujet de la séance</legend>
-        <input type="radio" id="initiation" name="initiation" value="S">
-        <label for="initiation">Initiation</label>
-        <br>
-        <input type="radio" id="purification" name="purification" value="S">
-        <label for="purification">Purification maison</label>
-        <br>
-        <input type="radio" id="lithotherapie" name="lithotherapie" value="S">
-        <label for="lithotherapie">Lithothérapie</label>
-        <br>
-        <input type="radio" id="tirage" name="tirage" value="S">
-        <label for="tirage">Tirage de carte</label>
-        <br>
-        <div id="autre">
-            <input type="radio" id="autre" name="autre" value="S">
-            <label for="autre">Autre (préciser)</label>
-            <input type="text" id="autre" name="autre" placeholder="Écrire ici...">
+<main class="reservation-page">
+  <div class="reservation-container">
+
+    <header class="reservation-hero">
+      <h1 class="reservation-title">Réserver une séance</h1>
+      <div class="reservation-title-line"></div>
+    </header>
+
+    <form action="{{ path('app_reservation') }}" method="post" class="reservation-form">
+
+      {# =========================
+         SECTION INFORMATIONS
+      ========================== #}
+      <h2 class="section-label">Informations :</h2>
+
+      <section class="reservation-section">
+        <div class="card card-info">
+          <div class="input-grid">
+            <div class="input-group">
+              <label for="firstname">Prénom</label>
+              <input type="text" id="firstname" name="firstname" placeholder="Texte">
+            </div>
+
+            <div class="input-group">
+              <label for="lastname">Nom</label>
+              <input type="text" id="lastname" name="lastname" placeholder="Texte">
+            </div>
+
+            <div class="input-group full-width">
+              <label for="email">Votre Mail</label>
+              <input type="email" id="email" name="email" placeholder="Texte">
+            </div>
+          </div>
         </div>
-        <br>
-    </fieldset>
-    <button type="submit">Confirmer la réservation</button>
-</form>
+      </section>
+
+      {# =========================
+         SECTION DATE & CALENDRIER
+      ========================== #}
+      <h2 class="section-label">Date :</h2>
+
+      <section class="reservation-section">
+        <div class="card card-calendar">
+
+          <div class="calendar-top">
+            <div class="month-row">
+              <span id="current-month" class="current-month">Janvier 2026</span>
+
+              <div class="month-controls">
+                <button type="button" id="prev-month" class="icon-btn">&lt;</button>
+                <button type="button" id="next-month" class="icon-btn">&gt;</button>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div class="legend-item">
+                <span class="legend-box is-unavailable"></span>
+                <span>Journée complète / Non disponible</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-box is-selected"></span>
+                <span>Votre sélection</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="days-header">
+            <div>Lundi</div><div>Mardi</div><div>Mercredi</div><div>Jeudi</div><div>Vendredi</div><div>Samedi</div><div>Dimanche</div>
+          </div>
+
+          <div id="calendar-grid" class="calendar-grid"></div>
+
+          {# =========================
+             SECTION DISPONIBILITÉS (après clic jour)
+          ========================== #}
+          <div id="slots-section" class="slots is-hidden" aria-live="polite">
+            <div class="slots-card">
+              <h3 class="slots-title">
+                Disponibilités : <span class="slots-date">—</span>
+              </h3>
+
+              <div class="slots-grid" id="slots-grid"></div>
+
+              <div class="slots-legend">
+                <div class="legend-item">
+                  <span class="legend-box is-unavailable"></span>
+                  <span>Réservé / Non disponible</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-box is-selected"></span>
+                  <span>Votre sélection</span>
+                </div>
+              </div>
+
+              <div class="slots-bottom">
+                <div class="availability">
+                  <span class="availability-label">Votre disponibilité :</span>
+
+                  <div class="availability-controls">
+                    <span class="muted">À partir de :</span>
+
+                    <select id="from-time" class="time-select">
+                      <option value="">--:--</option>
+                    </select>
+
+                    <span class="muted">jusqu’à :</span>
+
+                    <select id="to-time" class="time-select">
+                      <option value="">--:--</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="button" id="validate-slots" class="btn-validate" disabled>
+                  Valider
+                </button>
+              </div>
+            </div>
+
+            <input type="hidden" id="reservation-date" name="date">
+            <input type="hidden" id="reservation-from" name="from">
+            <input type="hidden" id="reservation-to" name="to">
+          </div>
+
+        </div>
+      </section>
+
+      {# =========================
+         SECTION SUJET
+      ========================== #}
+      <h2 class="section-label">Sujet de la séance :</h2>
+
+      <section class="reservation-section">
+        <div class="card card-subject">
+
+          <div class="subject-grid">
+            <label class="custom-check">
+              <input type="radio" name="sujet" value="initiation">
+              <span class="checkmark"></span>
+              Initiation
+            </label>
+
+            <label class="custom-check">
+              <input type="radio" name="sujet" value="purification">
+              <span class="checkmark"></span>
+              Purification maison
+            </label>
+
+            <label class="custom-check">
+              <input type="radio" name="sujet" value="lithotherapie">
+              <span class="checkmark"></span>
+              Lithothérapie
+            </label>
+
+            <label class="custom-check">
+              <input type="radio" name="sujet" value="tirage">
+              <span class="checkmark"></span>
+              Tirage de carte
+            </label>
+          </div>
+
+          <div class="subject-other">
+            <label class="custom-check">
+              <input type="radio" name="sujet" value="autre">
+              <span class="checkmark"></span>
+              Autre (préciser)
+            </label>
+
+            <input type="text" name="autre_precision" placeholder="Écrire ici..." class="subject-other-input">
+          </div>
+
+        </div>
+      </section>
+
+      <button type="submit" class="btn-confirm">
+        Confirmer la réservation
+      </button>
+    </form>
+
+  </div>
+</main>
 {% endblock %}

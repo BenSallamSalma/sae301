@@ -1,0 +1,185 @@
+/* =========================
+   VARIABLES
+========================= */
+$purple: #9286EA;
+$dark: #2E2D3F;
+$accent: #BA68BC;
+$blue-light: #C8D1F4;
+$white: #fff;
+
+/* =========================
+   PAGE
+========================= */
+.admin-page {
+  min-height: 100vh;
+  background: $purple;
+  padding: 120px 0 80px;
+}
+
+/* =========================
+   HERO
+========================= */
+.admin-hero {
+  width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.admin-title {
+  font-family: CRONDE, serif;
+  font-size: 85px;
+  color: $white;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.admin-title-line {
+  display: block;
+  width: 100%;
+  height: 0;
+  outline: 3px solid $white;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.admin-section {
+  width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.admin-section-title {
+  font-family: Poppins, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: $accent;
+  margin-bottom: 20px;
+
+  &.muted {
+    color: rgba($white, .7);
+  }
+}
+
+/* =========================
+   CARD
+========================= */
+.admin-card {
+  background: $white;
+  border-radius: 30px;
+  padding: 30px;
+}
+
+/* =========================
+   TABLE
+========================= */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+
+  thead {
+    background: #BAC9FF;
+  }
+
+  th, td {
+    padding: 12px;
+    border: 1px solid $purple;
+    text-align: center;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #F0F2FD;
+  }
+}
+
+.status {
+  font-weight: 700;
+
+  &.confirmed {
+    color: $accent;
+  }
+}
+
+/* =========================
+   PLANNING
+========================= */
+.admin-planning-card {
+  background: $white;
+}
+
+.planning-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.planning-month {
+  font-family: Poppins, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: $accent;
+}
+
+.planning-legend {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.legend-item {
+  width: 40px;
+  height: 37px;
+  border-radius: 11px;
+  display: inline-block;
+
+  &.pending {
+    background: $blue-light;
+  }
+
+  &.confirmed {
+    background: $accent;
+  }
+}
+
+.planning-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  color: rgba($dark, .65);
+  margin-bottom: 14px;
+}
+
+.planning-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+}
+
+.planning-day {
+  height: 75px;
+  border-radius: 21px;
+  background: $blue-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: $dark;
+
+  &.confirmed {
+    background: $accent;
+    color: $white;
+  }
+
+  &.pending {
+    background: $blue-light;
+  }
+}

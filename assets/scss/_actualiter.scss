@@ -1,0 +1,190 @@
+// --- Variables Supplémentaires (Page Actualités) ---
+$accent-purple-light: #9286EA;
+$accent-pink-purple: #BA68BC;
+$card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
+
+// --- Mixins de Structure ---
+@mixin mobile { @media (max-width: #{$breakpoint-sm}) { @content; } }
+@mixin tablet { @media (max-width: #{$breakpoint-md}) { @content; } }
+
+// --- Mixin Corrigé (L'astuce de l'ombre portée pour éviter les bugs) ---
+@mixin double-card($bg-color, $shadow-color) {
+    background-color: $bg-color !important;
+    border-radius: 30px;
+    // Crée le décalage de 20px sans flou pour simuler la carte du dessous
+    box-shadow: 20px 20px 0 0 $shadow-color;
+    border: none;
+    position: relative;
+}
+
+// --- Styles de la page ---
+
+.news-page {
+    // Titre principal
+    .title-main {
+        font-family: 'CRONDE', serif;
+        font-size: 4rem;
+        color: $accent-purple-light;
+        text-align: center;
+        margin: 4rem 0 2rem;
+        @include mobile { font-size: 2.5rem; }
+    }
+
+    .intro-section {
+        max-width: 1048px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.25rem;
+        color: $nav-bg-color;
+        line-height: 1.6;
+        
+        .newsletter-link {
+            font-weight: bold;
+            display: block;
+            margin-top: 2rem;
+            color: $nav-bg-color;
+            text-decoration: none;
+            &:hover { text-decoration: underline; }
+        }
+    }
+
+    // Section Sombre (Actualités Astrologiques)
+    .astrological-section {
+        background-color: $nav-bg-color;
+        color: $text-color-light;
+        padding: 5rem 0;
+        margin-top: 5rem;
+        text-align: center;
+
+        .title-secondary {
+            color: $accent-purple-light;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .moon-main-img {
+            width: 30%;  // Ajuste la taille ici (ex: 150px, 250px)
+            height: auto;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .moon-phase-text {
+            font-size: 2.2rem;
+            margin: 2rem 0;
+            span { font-weight: bold; }
+        }
+
+        // CARTE BLANCHE (Celle de l'image)
+        .info-card-white {
+            @include double-card($light-background, $card-shadow-color);
+            color: $text-color-dark;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 3rem;
+            text-align: left;
+            font-size: 1.5rem;
+            
+            // Assure que le texte reste bien au centre si on réduit la fenêtre
+            width: 90%; 
+
+            .highlight { color: $accent-purple-light; font-weight: bold; }
+        }
+    }
+
+    // Section Horoscope
+    .horoscope-section {
+        padding: 5rem 0;
+        text-align: center;
+
+        .zodiac-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            margin: 4rem 0;
+            @include tablet { grid-template-columns: repeat(3, 1fr); }
+            @include mobile { grid-template-columns: repeat(2, 1fr); }
+
+            img {
+                width: 100%;
+                transition: $nav-transition;
+                cursor: pointer;
+                &:hover { transform: scale(1.1); }
+            }
+        }
+
+        // CARTE SOMBRE (Même effet, fond sombre)
+        .info-card-dark {
+            @include double-card($nav-bg-color, $card-shadow-color);
+            color: $text-color-light;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: left;
+            font-size: 1.5rem;
+            width: 90%;
+        }
+    }
+
+    // Section Articles
+    .articles-grid-section {
+        padding: 5rem 0;
+        
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 3rem;
+            @include tablet { grid-template-columns: 1fr; }
+        }
+
+        .article-card {
+            background: $nav-bg-color;
+            color: $text-color-light;
+            border-radius: 8px;
+            overflow: hidden;
+            
+            .img-container {
+                height: 460px;
+                background: #D9D9D9;
+                img { width: 100%; height: 100%; object-fit: cover; }
+            }
+
+            .content {
+                padding: 1.5rem;
+                h2 { font-size: 1.5rem; font-weight: bold; }
+                p { font-size: 0.9rem; opacity: 0.8; margin: 1rem 0; }
+                .read-more {
+                    display: block;
+                    text-align: right;
+                    color: $text-color-light;
+                    font-weight: bold;
+                    text-decoration: none;
+                    &:hover { text-decoration: underline; }
+                }
+            }
+        }
+    }
+
+    // Bouton Final
+    .btn-cta-more {
+        display: block;
+        width: fit-content;
+        margin: 4rem auto;
+        background-color: $accent-pink-purple;
+        color: $text-color-light;
+        padding: 1.2rem 3rem;
+        border-radius: 30px;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: $nav-transition;
+
+        &:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+    }
+}

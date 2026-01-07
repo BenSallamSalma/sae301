@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 // Base
 html {
@@ -27,6 +27,8 @@ body {
     > * { box-sizing: border-box; }
 }
 
+
+
 main {
     flex: 1 0 auto;
     width: 100%;
@@ -52,19 +54,22 @@ main {
 .banniere {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
+    max-height: 800px;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: $primary-purple; // Utilisation de la variable pour la couleur de fond
+    background-color: #9286EA;
+    background-image: url('../images/banniere_accueil.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 
     img {
-        min-height: 60vh;
-        display: block;
-        object-fit: cover; // Changé de contain à cover pour mieux remplir
-        object-position: center;
+        display: none; // Masquer l'image HTML pour afficher le background-image
     }
 
     .banniere-text {
@@ -77,116 +82,152 @@ main {
         width: 100%;
         max-width: 100%;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
 
         h1 {
             margin: 0;
             color: #ffffff;
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: clamp(3.5rem, 8vw, 5.3125rem) !important; // Maquette : 85px
+            font-family: $font-title !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.15em !important; // Maquette : 2.40px équivalent
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: fadeIn 0.8s ease-in-out;
+        }
+
+        &::after {
+            content: '';
+            width: 100%;
+            max-width: 471px;
+            height: 3px;
+            background-color: #ffffff;
+            margin-top: 0;
+            display: block;
         }
     }
 }
 
 @media (max-width: $breakpoint-sm) {
     .banniere {
-        min-height: 50vh;
-        img { min-height: 50vh; }
+        min-height: 55vh;
+        max-height: 600px;
         .banniere-text {
             padding: 0.75rem;
-            h1 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+            h1 { 
+                font-size: clamp(2.5rem, 8vw, 4rem);
+                letter-spacing: 0.1em;
+            }
+            &::after {
+                max-width: 300px;
+            }
         }
     }
 }
 
 @media (max-width: $breakpoint-xs) {
     .banniere {
-        min-height: 40vh;
-        img { min-height: 40vh; }
+        min-height: 45vh;
+        max-height: 500px;
         .banniere-text {
             padding: 0.5rem;
-            h1 { font-size: clamp(1.25rem, 7vw, 2rem); }
+            h1 { 
+                font-size: clamp(2rem, 8vw, 3rem);
+                letter-spacing: 0.08em;
+            }
+            &::after {
+                max-width: 250px;
+                height: 2px;
+            }
         }
     }
 }
 
 @media (min-width: $breakpoint-lg) {
     .banniere {
-        min-height: 70vh;
-        img { min-height: 70vh;         }
+        min-height: 75vh;
+        max-height: 850px;
     }
 }
 
 // Section Informations
 .informations {
-    background-color: $dark-grey-background; // Utilisation de la variable pour le fond gris foncé
+    background-color: #2E2D3F; // Couleur exacte de la maquette
     display: flex;
-    align-items: center; // Centré verticalement
+    align-items: center;
     justify-content: center;
-    gap: 2.5rem;
-    padding: 3.5rem 3rem; // Hauteur et largeur accrues pour occuper la page
+    gap: 4rem;
+    padding: 4rem 3rem;
     width: 100%;
-    max-width: 100%; // Occuper toute la largeur
+    max-width: 100%;
     margin: 0;
-    min-height: 380px;
+    min-height: 630px;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
 
     .informations-image {
-        flex: 1;
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         z-index: 10;
+        width: 368px;
+        height: 479px;
 
         img {
-            width: 55%;
-            height: auto; // Conserver le ratio
+            width: 368px;
+            height: 479px;
             display: block;
             object-fit: cover;
-            transition: transform 0.3s ease;
-            &:hover { transform: scale(1.05); }
+            // Pas de border-radius ni autres styles décoratifs
         }
     }
 
     .informations-content {
         flex: 1;
         padding: 0 1rem;
-        color: $text-color-light; // Texte clair pour le fond foncé
+        color: #ffffff;
         z-index: 10;
+        max-width: 657px;
 
         h2 {
-            font-family: 'Playfair Display', serif; // Exemple de police élégante
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
+            font-family: $font-title !important;
+            font-size: clamp(2rem, 4vw, 2.5rem) !important; // Maquette : 40px
+            font-weight: 400 !important;
             margin: 0 0 1.5rem 0;
-            color: $text-color-light; // Couleur du titre
-            text-align: right; // Titre aligné à droite comme la maquette
+            color: #ffffff;
+            text-align: left;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1.5rem;
+            letter-spacing: 0.15em !important; // Maquette : 2.40px équivalent
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
 
             &::after {
                 content: '';
-                position: absolute;
-                bottom: 0;
-                right: 0; // Soulignement aligné à droite
-                width: 80px; // Longueur du soulignement
-                height: 2px;
-                background-color: $primary-purple;
+                width: 809px;
+                max-width: 100%;
+                height: 3px; // Maquette : 3px
+                background-color: #ffffff;
+                display: block;
             }
         }
 
         p {
-            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.95rem, 1.3vw, 1.0625rem); // Maquette : 17px
             line-height: 1.8;
-            color: mix($text-color-light, $dark-grey-background, 80%); // Gris très clair pour le texte
-            margin: 0 0 1rem 0;
-            text-align: right; // Texte aligné à droite
-            max-width: 620px; // Limiter la largeur pour des lignes plus courtes
-            margin-left: auto; // Pour coller le bloc de texte à droite
+            color: #ffffff;
+            margin: 0;
+            text-align: left;
+            font-weight: 400;
         }
     }
 }
@@ -196,19 +237,40 @@ main {
         flex-direction: column;
         gap: 2rem;
         padding: 3rem 1.5rem;
+        min-height: auto;
 
         .informations-image {
             flex: 1 1 100%;
             max-width: 100%;
             width: 100%;
+            height: auto;
+            
+            img {
+                width: 100%;
+                max-width: 368px;
+                height: auto;
+                aspect-ratio: 368 / 479;
+            }
         }
 
         .informations-content {
             flex: 1 1 100%;
             padding: 0;
-            text-align: center; // Centrer le texte pour les petites tailles d'écran
-            h2::after { left: 50%; transform: translateX(-50%); right: auto; } // Centrer le soulignement pour les petites tailles d'écran
-            p { margin-left: auto; margin-right: auto; text-align: center; }
+            text-align: center;
+            max-width: 100%;
+            
+            h2 {
+                text-align: center;
+                align-items: center;
+                &::after { 
+                    width: 100%;
+                    max-width: 500px;
+                }
+            }
+            p { 
+                text-align: center;
+                max-width: 100%;
+            }
         }
     }
 }
@@ -218,12 +280,21 @@ main {
         padding: 2rem 1rem;
         gap: 1.5rem;
 
+        .informations-image {
+            img {
+                max-width: 280px;
+            }
+        }
+
         .informations-content {
             h2 {
-                font-size: 1.5rem;
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                &::after {
+                    max-width: 300px;
+                }
             }
             p {
-                font-size: 0.95rem;
+                font-size: clamp(0.9rem, 2vw, 1rem);
             }
         }
     }
@@ -231,26 +302,31 @@ main {
 
 // Section "Ce que l'on propose"
 .what-we-offer {
-    background-color: $light-background;
+    background-color: #ffffff;
     padding: 4rem 2rem;
 
     .section-title {
-        color: $text-color-dark;
-        margin-bottom: 3rem;
+        color: #2E2D3F;
+        margin-bottom: 4rem;
         position: relative;
         text-align: center;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
         width: 100%;
+        font-family: $font-title !important;
+        font-size: clamp(2rem, 4vw, 2.5rem) !important; // Maquette : 40px
+        font-weight: 400 !important;
+        letter-spacing: 0.15em !important; // Maquette : 2.40px équivalent
 
         &::after {
             content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
+            width: 809px;
+            max-width: 90%;
+            height: 3px; // Maquette : 3px
             background-color: #2E2D3F;
+            display: block;
         }
     }
 
@@ -268,27 +344,33 @@ main {
             flex: 1.5;
             h3 {
                 color: #2E2D3F;
-                font-size: 1.5rem;
+                font-family: $font-title !important;
+                font-size: clamp(1.5rem, 3vw, 2rem) !important; // Maquette : 32px
+                font-weight: 400 !important;
                 margin-bottom: 1.5rem;
                 position: relative;
-                display: inline-block;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
 
                 &::after {
                     content: '';
-                    position: absolute;
-                    bottom: -12px;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
+                    width: 809px;
+                    max-width: 100%;
+                    height: 3px; // Maquette : 3px
                     background-color: #2E2D3F;
+                    display: block;
                 }
             }
 
             p {
-                color: $text-color-dark;
+                color: #000000;
+                font-family: 'Poppins', sans-serif;
                 line-height: 1.8;
-                font-size: 0.95rem;
+                font-size: clamp(0.9rem, 1.3vw, 1.0625rem); // Maquette : 17px
                 margin: 0;
+                font-weight: 400;
             }
         }
 
@@ -370,43 +452,50 @@ main {
 
 // Section Oracle
 .oracle-section {
-    background-color: $dark-grey-background;
+    background-color: #2E2D3F;
     padding: 4rem 2rem;
     text-align: center;
-    color: $text-color-light;
+    color: #ffffff;
 
     .section-title {
-        font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: 2.5rem;
+        font-family: $font-title;
+        font-size: clamp(2rem, 4vw, 2.5rem); // Maquette : 40px
+        font-weight: 400;
+        letter-spacing: 0.15em; // Maquette : 2.40px équivalent
+        margin-bottom: 3rem;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
         
         &::after {
             content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 950px;
-            height: 2px;
+            width: 808px;
+            max-width: 90%;
+            height: 3px; // Maquette : 3px
             background-color: #ffffff;
+            display: block;
         }
     }
 
     .oracle-card-container {
         position: relative;
-        width: 250px; // Taille fixe pour la carte
-        height: 350px;
+        width: 335px;
+        height: 498px;
         margin: 0 auto 2rem auto;
         cursor: pointer;
         transform: scale(1);
         transition: transform 0.3s ease-in-out;
+        outline: 4px solid #ffffff;
+        outline-offset: 0;
         
         &:hover { transform: scale(1.05); }
         
         img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .oracle-question {
@@ -425,83 +514,100 @@ main {
     @media (max-width: $breakpoint-sm) {
         padding: 3rem 1.5rem;
         .section-title {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
             margin-bottom: 2rem;
-            &::after { width: 80px; }
+            &::after { 
+                width: 100%;
+                max-width: 500px;
+            }
         }
         .oracle-card-container {
-            width: 200px;
-            height: 280px;
-            .oracle-question { font-size: 5rem; }
+            width: 280px;
+            height: 420px;
+            outline-width: 3px;
         }
     }
 
     @media (max-width: $breakpoint-xs) {
         padding: 2rem 1rem;
         .section-title {
-            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
             margin-bottom: 1.5rem;
-            &::after { width: 60px; }
+            &::after { 
+                width: 100%;
+                max-width: 300px;
+            }
         }
         .oracle-card-container {
-            width: 150px;
-            height: 210px;
-            .oracle-question { font-size: 4rem; }
+            width: 250px;
+            height: 375px;
+            outline-width: 2px;
         }
     }
 }
 
 // Section Newsletter
 .newsletter-section {
-    background-color: $light-background;
+    background-color: #ffffff;
     padding: 4rem 2rem;
 
     .section-title {
-        color: $text-color-dark;
+        color: #2E2D3F;
+        font-family: $font-title;
+        font-size: clamp(2rem, 4vw, 2.5rem); // Maquette : 40px
+        font-weight: 400;
+        letter-spacing: 0.15em; // Maquette : 2.40px équivalent
         margin-bottom: 3rem;
         position: relative;
         text-align: center;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
         width: 100%;
+    
 
         &::after {
             content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 2px;
+            width: 344px;
+            max-width: 90%;
+            height: 3px; // Maquette : 3px
             background-color: #2E2D3F;
+            display: block;
         }
     }
 
     p {
-        color: $text-color-dark;
-        max-width: 800px;
+        color: #000000;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(0.95rem, 1.3vw, 1.0625rem); // Maquette : 17px
+        max-width: 896px;
         margin: 0 auto 3rem auto;
         text-align: center;
         line-height: 1.7;
+        font-weight: 400;
     }
 
     .articles-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        max-width: 800px;
+        gap: 2rem;
+        max-width: 1200px;
         margin: 0 auto;
         justify-items: center;
 
         .article-card {
-            background-color: #fff;
+            background-color: #2E2D3F;
             border-radius: 0;
-            overflow: hidden;
+            overflow: visible; // Permet de voir tout le contenu
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            max-width: 350px;
-            width: 100%;
+            width: 438px;
+            max-width: 100%;
+            min-height: 629px; // min-height au lieu de height pour permettre l'expansion
+            height: auto;
 
             &:hover {
                 transform: translateY(-5px);
@@ -510,55 +616,56 @@ main {
 
             img {
                 width: 100%;
-                height: 200px; // Image réduite
+                height: 468px;
                 object-fit: cover;
-                aspect-ratio: 1 / 1;
+                flex-shrink: 0; // Empêche l'image de rétrécir
             }
 
             div {
-                padding: 1rem;
-                background-color: $dark-grey-background;
-                color: $text-color-light;
+                padding: 1rem 1.5rem;
+                background-color: #2E2D3F;
+                color: #ffffff;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
                 text-align: left;
+                gap: 0.5rem;
+                min-height: 0; // Permet au contenu de s'étendre
+                overflow: visible; // Assure que tout le contenu est visible
 
                 h3 {
-                    font-size: 1.25rem;
-                    font-weight: 600;
-                    margin-bottom: 0.75rem;
-                    margin-left: 0;
-                    margin-right: 0;
-                    padding-left: 0;
-                    padding-right: 0;
+                    font-family: 'Inter', sans-serif;
+                    font-size: clamp(1.1rem, 2vw, 1.5625rem); // Maquette : 25px
+                    font-weight: 700;
+                    margin: 0;
+                    color: #ffffff;
                     text-align: left;
                 }
 
                 p {
-                    font-size: 0.9rem;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: clamp(0.8rem, 1.1vw, 0.8125rem); // Maquette : 13px
                     line-height: 1.6;
-                    margin-bottom: 1rem;
-                    margin-left: 0;
-                    margin-right: 0;
-                    padding-left: 0;
-                    padding-right: 0;
-                    color: $text-color-light;
+                    margin: 0;
+                    color: #ffffff;
                     flex: 1;
                     text-align: left;
+                    font-weight: 400;
                 }
 
                 a {
                     display: flex;
-                    color:white;
+                    color: #ffffff;
                     text-decoration: none;
                     justify-content: flex-end;
-
-                    font-weight: 500;
+                    font-family: 'Inter', sans-serif;
+                    font-size: clamp(0.85rem, 1.2vw, 0.9375rem); // Maquette : 15px
+                    font-weight: 700;
+                    margin-top: auto;
                     transition: color 0.3s ease;
 
                     &:hover { 
-                        color: darken($primary-purple, 10%);
+                        color: rgba(255, 255, 255, 0.8);
                     }
                 }
             }
@@ -571,29 +678,33 @@ main {
     }
 
     .btn-more-articles {
-        display: inline-block;
-        color: $text-color-dark;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        color: #2E2D3F;
         text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-family: $font-title;
+        font-size: clamp(1.5rem, 3vw, 2.5rem); // Maquette : 40px
+        font-weight: 400;
+        letter-spacing: 0.15em; // Maquette : 2.40px équivalent
         position: relative;
         transition: color 0.3s ease;
+        margin: 0 auto;
 
         &::after {
             content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 2px;
-            background-color: $text-color-dark;
+            width: 344px;
+            max-width: 90%;
+            height: 3px; // Maquette : 3px
+            background-color: #2E2D3F;
+            display: block;
         }
 
         &:hover {
-            color: darken($text-color-dark, 20%);
+            color: darken(#2E2D3F, 10%);
             &::after {
-                background-color: darken($text-color-dark, 20%);
+                background-color: darken(#2E2D3F, 10%);
             }
         }
     }
@@ -601,41 +712,102 @@ main {
     @media (max-width: $breakpoint-md) {
         .articles-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.2rem;
+            gap: 1.5rem;
+            
+            .article-card {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                min-height: 500px;
+            }
         }
     }
 
     @media (max-width: $breakpoint-sm) {
         padding: 3rem 1.5rem;
 
-        .section-title { font-size: 2.2rem; }
-        p { font-size: 0.95rem; margin-bottom: 2rem; }
+        .section-title { 
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            &::after {
+                max-width: 300px;
+            }
+        }
+        p { 
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 2rem; 
+        }
 
         .articles-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+            
             .article-card {
+                width: 100%;
                 max-width: 100%;
+                height: auto;
+                min-height: 450px;
+                
+                img { 
+                    height: 250px;
+                }
+                div { 
+                    padding: 1rem;
+                }
+                div h3 { 
+                    font-size: clamp(1rem, 2.5vw, 1.3rem);
+                }
+                div p { 
+                    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+                }
             }
-            .article-card img { height: 140px; }
-            .article-card div { padding: 0.8rem; }
-            .article-card div h3 { font-size: 1.1rem; }
-            .article-card div p { font-size: 0.85rem; }
         }
-        .btn-more-articles { padding: 0.7rem 2rem; font-size: 1rem; margin-top: 2rem; }
+        .btn-more-articles { 
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-top: 2rem;
+            &::after {
+                max-width: 250px;
+            }
+        }
     }
 
     @media (max-width: $breakpoint-xs) {
         padding: 2rem 1rem;
-        .section-title { font-size: 1.8rem; }
-        p { font-size: 0.9rem; margin-bottom: 1.5rem; }
+        
+        .section-title { 
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
+            &::after {
+                max-width: 200px;
+            }
+        }
+        p { 
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            margin-bottom: 1.5rem; 
+        }
+        
         .articles-grid { 
             grid-template-columns: 1fr;
-            gap: 1rem; 
+            gap: 1.5rem;
+            
+            .article-card {
+                width: 100%;
+                height: auto;
+                min-height: 400px;
+                
+                img { 
+                    height: 200px;
+                }
+                div { 
+                    padding: 0.8rem;
+                }
+            }
         }
-        .article-card img { height: 120px; }
-        .article-card div { padding: 0.7rem; }
-        .btn-more-articles { padding: 0.6rem 1.5rem; font-size: 0.9rem; margin-top: 1.5rem; }
+        .btn-more-articles { 
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-top: 1.5rem;
+            &::after {
+                max-width: 180px;
+            }
+        }
     }
 }
 

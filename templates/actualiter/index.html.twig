@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block main %}
+<div class="news-page"> {# La classe parente pour tout le style #}
+
+    <section class="container mx-auto px-4 py-8 intro-section">
+        <h1 class="title-main">Actualités</h1>
+        <p>Retrouvez ici toutes nos dernières actualités autour de l’astrologie, de la divination et des énergies du moment. Vous y découvrirez les publications récentes de nos experts.</p>
+        <p>Cette page rassemble également les phases spirituelles du moment, ainsi que les articles les plus consultés par notre communauté.</p>
+        <p>Un espace vivant, passionnant et régulièrement mis à jour, parfait pour rester connecté aux messages des astres et à l’évolution de nos pratiques.</p>
+        <p class="newsletter-link"><b>Vous voulez rester au courant de tout ? Découvrez notre page newsletter et accédez instantanément aux dernières infos ! → lien vers la newsletter</b></p>
+        <img src="{{ asset('images/pageseperator.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+
+    </section>
+
+
+
+    <section class="astrological-section">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-secondary">Actualités Astrologiques</h2>
+            <img src="{{ asset('images/phases_de_la_lune.png') }}" alt="Phases Lunaires" class="mx-auto mb-4">
+            <p class="moon-phase-text">Phase lunaire du jour : <span>Pleine lune</span></p>
+            <img src="{{ asset('images/full moon.png') }}" alt="Lunes" class="mx-auto moon-main-img">            <div class="info-card-white">
+                <p><span class="highlight">La pleine lune</span> représente l’apogée du cycle lunaire : c’est le moment où les énergies sont les plus intenses et les émotions les plus amplifiées.</p>
+                <p>C’est une phase idéale pour faire le point, libérer ce qui ne sert plus, et recevoir des messages intuitifs plus nets. Les tirages réalisés sous la pleine lune apportent souvent une vision globale d’une situation et aident à comprendre ce qui arrive à maturité dans notre vie.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="horoscope-section container mx-auto px-4">
+        <h2 class="title-secondary">Horoscopes du jour</h2>
+        <div class="zodiac-grid">
+            <img src="{{ asset('images/bélier.png') }}" alt="Bélier">
+            <img src="{{ asset('images/taureau.png') }}" alt="Taureau">
+            <img src="{{ asset('images/gemini.png') }}" alt="Gémeaux">
+            <img src="{{ asset('images/cancer.png') }}" alt="Cancer">
+            <img src="{{ asset('images/lion.png') }}" alt="Lion">
+            <img src="{{ asset('images/vierge.png') }}" alt="Vierge">
+            <img src="{{ asset('images/balance.png') }}" alt="Balance">
+            <img src="{{ asset('images/scorpion.png') }}" alt="Scorpion">
+            <img src="{{ asset('images/sagittaire.png') }}" alt="Sagitaire">
+            <img src="{{ asset('images/capricorne.png') }}" alt="Capricorne">
+            <img src="{{ asset('images/verseau.png') }}" alt="Verseau">
+            <img src="{{ asset('images/poisson.png') }}" alt="Poissons">
+        </div>
+        <div class="info-card-dark">
+            <p>Grâce à l’horoscope du jour, vous pouvez découvrir les vibrations qui vous entourent et comprendre ce que les astres cherchent à vous révéler.</p>
+            <p>Pour accéder à votre horoscope personnalisé adapté à votre signe, cliquez ici ou sur votre signe ci-dessus.</p>
+            <p>Laissez les étoiles vous guider et commencez votre journée en conscience.</p>
+        </div>
+        <img src="{{ asset('images/pageseperator.png') }}" alt="Séparateur" class="w-full max-w-md mx-auto my-16">
+
+    </section>
+
+    <section class="articles-grid-section container mx-auto px-4 py-8">
+        <h2 class="title-secondary" style="color: #2E2D3F">Articles</h2>
+        <div class="articles-container">
+            <div class="article-card">
+                <div class="img-container"><img src="{{ asset('images/article.png') }}" alt="Article"></div>
+                <div class="content">
+                    <h2>Actualités de nos experts</h2>
+                    <p>Interviews, conseils, messages spirituels, analyses astrologiques…</p>
+                    <a href="#" class="read-more">Lire l'article →</a> 
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="img-container"><img src="{{ asset('images/article.png') }}" alt="Article"></div>
+                <div class="content">
+                    <h2>Événement & annonces</h2>
+                    <p>Ateliers, nouvelles fonctionnalités du site, séances promotionnelles...</p>
+                    <a href="#" class="read-more">Lire l'article →</a> 
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn-cta-more">Découvrir plus d’articles</a>
+    </section>
+
+</div>
+{% endblock %}

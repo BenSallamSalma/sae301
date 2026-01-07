@@ -1,20 +1,82 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Admin – Réservations{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+<main class="admin-page">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+  {# ===== HERO ADMIN ===== #}
+  <section class="admin-hero">
+    <h1 class="admin-title">ADMIN</h1>
+    <span class="admin-title-line"></span>
+  </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/ws301/src/Controller/AdminController.php</code></li>
-        <li>Your template at <code>/var/www/ws301/templates/admin/index.html.twig</code></li>
-    </ul>
-</div>
+  {# ===== SECTION TABLE RESERVATIONS ===== #}
+  <section class="admin-section">
+
+    <div class="admin-card admin-table-card">
+        <h2 class="admin-section-title">Réservations client</h2>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date réservation</th>
+            <th>Pseudo</th>
+            <th>Nom & Prénom</th>
+            <th>Disponibilités</th>
+            <th>Service</th>
+            <th>Email</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for i in 1..10 %}
+          <tr>
+            <td>{{ i }}</td>
+            <td>24/01/2026</td>
+            <td>Sample</td>
+            <td>Sample</td>
+            <td>13:00 – 18:00</td>
+            <td>Consultation</td>
+            <td>sample@mail.com</td>
+            <td class="status confirmed">Confirmée</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {# ===== SECTION PLANNING ===== #}
+  <section class="admin-section">
+    <h2 class="admin-section-title muted">Planning des réservations</h2>
+
+    <div class="admin-card admin-planning-card">
+      <header class="planning-header">
+        <span class="planning-month">Jan 2026</span>
+
+        <div class="planning-legend">
+          <span class="legend-item pending"></span> Réservation en cours
+          <span class="legend-item confirmed"></span> Réservation confirmée
+        </div>
+      </header>
+
+      <div class="planning-days">
+        <span>Lundi</span><span>Mardi</span><span>Mercredi</span>
+        <span>Jeudi</span><span>Vendredi</span><span>Samedi</span><span>Dimanche</span>
+      </div>
+
+      <div class="planning-grid">
+        {% for day in 1..30 %}
+          <div class="planning-day {% if day in [2,3,4,7,12,21,24,25,26] %}confirmed{% elseif day in [1,5,6,8,9,10] %}pending{% endif %}">
+            {{ day }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>
 {% endblock %}

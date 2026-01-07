@@ -1,0 +1,348 @@
+.services-page {
+  background: $bg-dark-main;
+  color: #fff;
+  padding-bottom: 0;
+  font-family: $font-main;
+  position: relative;
+}
+
+.services-top-band {
+  height: 500px; // Hauteur du bandeau violet
+  background: $accent-purple-light;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-hero {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.services-title {
+  font-family: $font-title;
+  font-size: clamp(3rem, 8vw, 6rem); // 8xl équivalent (~96px)
+  font-weight: 400;
+  letter-spacing: 0.15em; // tracking-widest
+  margin: 0 auto;
+  width: fit-content;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  // Pas de trait en haut, seulement en bas
+  &::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 608px;
+    max-width: 100%;
+    background: #fff;
+    margin: 10px auto 0;
+  }
+}
+
+.services-intro-section {
+  background-color: #2E2D3F; // Fond gris foncé comme dans la maquette
+  padding: 4rem 3rem;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.services-intro-container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.services-intro {
+  font-family: $font-main; // Poppins
+  font-size: clamp(1.25rem, 2vw, 1.5625rem); // 2xl = 25px
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  width: 715px;
+  max-width: 100%;
+  margin: 0;
+  color: #fff;
+  flex: 1;
+}
+
+.services-intro-visual {
+  width: 438px;
+  height: 358px;
+  background: #d9d9d9;
+  flex-shrink: 0;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.services-section {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0 0;
+}
+
+.section-divider {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.divider-img {
+  width: 612px;
+  height: auto;
+  display: block;
+}
+
+.section-title {
+  font-family: $font-title;
+  font-size: clamp(2rem, 4vw, 2.5rem); // 4xl = 40px
+  letter-spacing: 0.15em; // tracking-widest
+  font-weight: 400;
+  margin: 0;
+  color: #fff;
+}
+
+.section-desc {
+  font-family: $font-main; // Poppins
+  font-size: clamp(1.25rem, 2vw, 1.5625rem); // 2xl = 25px
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 auto 60px;
+  max-width: 895px;
+  color: #fff;
+}
+
+.center { text-align: center; }
+
+.sub-title {
+  font-family: $font-title;
+  font-size: clamp(2rem, 4vw, 2.5rem); // 4xl = 40px
+  letter-spacing: 0.15em; // tracking-widest
+  font-weight: 400;
+  margin: 60px 0 30px;
+  text-align: left;
+  color: #fff;
+}
+
+.practitioners-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  padding-bottom: 40px;
+}
+
+/* --------- Carte praticien --------- */
+.practitioner-card {
+  display: grid;
+  grid-template-columns: 285px 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.card-media {
+  width: 285px;
+  height: 360px;
+  background: #d9d9d9;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.card-body {
+  max-width: 520px;
+}
+
+.card-name {
+  font-family: $font-main; // Poppins
+  font-size: clamp(1.25rem, 2vw, 1.5625rem); // 2xl = 25px
+  font-weight: 700; // bold
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.card-role {
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem); // base = 17px
+  font-weight: 400;
+  letter-spacing: 2.55px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.card-text {
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem); // base = 17px
+  font-weight: 400;
+  letter-spacing: 2.55px;
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+.card-quote {
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem); // base = 17px
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 2.55px;
+  color: $accent-purple-light; // indigo-400
+  margin: 0 0 24px;
+}
+
+.card-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.stars {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  
+  svg {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+  }
+}
+
+// Ancien style .star conservé pour compatibilité mais non utilisé
+.star {
+  width: 30px;
+  height: 30px;
+  background: $accent-pink-purple;
+  display: inline-block;
+
+  &.half {
+    clip-path: inset(0 50% 0 0);
+  }
+}
+
+.score {
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem); // base = 17px
+  font-weight: 400;
+  letter-spacing: 2.55px;
+  color: #fff;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Bouton "Accéder aux témoignages" (outline violet) */
+.btn-outline-testimonials {
+  min-width: 256px;
+  min-height: 56px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // base = 15px
+  font-weight: 700;
+  letter-spacing: 0.75px; // tracking-wide
+  border-radius: 16px; // rounded-2xl
+  outline: 3px solid $accent-purple-light; // indigo-400
+  outline-offset: -3px;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+
+  &:hover { opacity: 0.9; }
+}
+
+/* Bouton "Réserver avec cette personne" (outline rose) */
+.btn-outline-reserve {
+  min-width: 288px;
+  min-height: 56px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-family: $font-main; // Poppins
+  font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // base = 15px
+  font-weight: 700;
+  letter-spacing: 0.75px; // tracking-wide
+  border-radius: 16px; // rounded-2xl
+  outline: 3px solid $accent-pink-purple; // pink-400
+  outline-offset: -3px;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+
+  &:hover { opacity: 0.9; }
+}
+
+/* --------- Bandeau blanc rassurance --------- */
+.services-reassurance {
+  background: #fff;
+  margin-top: 60px;
+  padding: 30px 0 40px;
+}
+
+.reassurance-container {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.reassurance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+
+  p {
+    margin: 16px 0 0;
+    font-family: $font-main; // Poppins
+    font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // base = 15px
+    font-weight: 400;
+    letter-spacing: 0.75px; // tracking-wide
+    line-height: 1.35;
+    color: #1e293b; // slate-800
+  }
+}
+
+.reassurance-icon {
+  width: 70px;   // adapte si besoin
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}

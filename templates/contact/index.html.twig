@@ -3,23 +3,40 @@
 {% block title %}Contact{% endblock %}
 
 {% block main %}
-<h1>Nous contacter</h1>
-<p>Une question, un besoin d’orientation ?<br>Notre équipe est à votre écoute pour vous guider et vous aider à choisir le service ou le praticien le plus adapté à votre situation. N’hésitez pas à nous contacter : nous vous répondrons avec attention, confidentialité et bienveillance.</p>
-<div>
-    <p>Pensez à jeter un œil à notre <span>FAQ</span>, vous y trouverez les réponses aux questions les plus fréquentes concernant nos services, les consultations et les modalités de réservation.</p>
-    <button>Accéder à la FAQ</button>
-</div>
-<div>
-    <form action="{{ path('app_contact') }}" method="post">
-        <label for="firstname">Prénom</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Écrire ici...">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Écrire ici...">
-        <label for="email">Votre mail</label>
-        <input type="email" id="email" name="email" placeholder="Écrire ici...">
-        <label for="message">Votre message</label>
-        <textarea id="message" name="message" placeholder="Écrire ici..."></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
-</div>
+<main>
+<div class="contact-page">
+    <div class="container">
+        <h1>Nous contacter</h1>
+        
+        <p class="intro-text">Une question, un besoin d’orientation ?<br>Notre équipe est à votre écoute pour vous guider et vous aider à choisir le service ou le praticien le plus adapté à votre situation.</p>
+
+        <div class="faq-section">
+            <p>Pensez à jeter un œil à notre <span>FAQ</span>, vous y trouverez les réponses aux questions les plus fréquentes.</p>
+            <button class="btn-faq">Accéder à la FAQ</button>
+        </div>
+
+        <div class="form-container">
+            <form action="{{ path('app_contact') }}" method="post">
+                <div>
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Texte">
+                </div>
+                <div>
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Texte">
+                </div>
+                <div class="full-width">
+                    <label for="email">Votre mail</label>
+                    <input type="email" id="email" name="email" placeholder="Écrire ici...">
+                </div>
+                <div class="full-width">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" rows="8" placeholder="Écrire ici..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+</main>
 {% endblock %}

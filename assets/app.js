@@ -1,152 +1,343 @@
 import './stimulus_bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
-// Gestion dynamique et responsive
+/* =========================================================
+   MENU DROPDOWN (ton code)
+========================================================= */
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const nav = document.querySelector('nav');
-    
-    // Fonction pour détecter la taille d'écran
-    function isMobile() {
-        return window.innerWidth <= 480;
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdown = document.querySelector('.dropdown');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const nav = document.querySelector('nav');
+
+  function isMobile() { return window.innerWidth <= 480; }
+  function isTablet() { return window.innerWidth > 480 && window.innerWidth <= 768; }
+
+  function positionMenu() {
+    if (!dropdownToggle || !dropdownMenu) return;
+
+    const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+
+    if (isMobile()) {
+      dropdownMenu.classList.toggle('show', isExpanded);
+      return;
     }
-    
-    function isTablet() {
-        return window.innerWidth > 480 && window.innerWidth <= 768;
+
+    if (isExpanded) {
+      const toggleRect = dropdownToggle.getBoundingClientRect();
+      const menuWidth = dropdownMenu.offsetWidth || 200;
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      let top = toggleRect.bottom + 8;
+      let right = viewportWidth - toggleRect.right;
+      let left = 'auto';
+
+      const menuHeight = dropdownMenu.offsetHeight || 150;
+      if (top + menuHeight > viewportHeight) {
+        top = toggleRect.top - menuHeight - 8;
+      }
+
+      if (right + menuWidth > viewportWidth) {
+        right = 'auto';
+        left = viewportWidth - toggleRect.left;
+      }
+
+      dropdownMenu.style.top = top + 'px';
+      dropdownMenu.style.right = typeof right === 'number' ? right + 'px' : right;
+      dropdownMenu.style.left = left;
+      dropdownMenu.style.position = 'fixed';
     }
-    
-    // Fonction pour positionner le menu dynamiquement
-    function positionMenu() {
-        if (!dropdownToggle || !dropdownMenu) return;
-        
-        const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-        
-        if (isMobile()) {
-            // Sur mobile, le menu est en position relative (géré par CSS)
-            dropdownMenu.classList.toggle('show', isExpanded);
-            return;
+  }
+
+  if (dropdownToggle && dropdown && dropdownMenu) {
+    dropdownToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      setTimeout(positionMenu, 10);
+    });
+
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (dropdownToggle.getAttribute('aria-expanded') === 'true') {
+          positionMenu();
         }
-        
-        if (isExpanded) {
-            const toggleRect = dropdownToggle.getBoundingClientRect();
-            const menuWidth = dropdownMenu.offsetWidth || 200;
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            
-            // Calculer la position
-            let top = toggleRect.bottom + 8;
-            let right = viewportWidth - toggleRect.right;
-            let left = 'auto';
-            
-            // Vérifier si le menu sort en bas de l'écran
-            const menuHeight = dropdownMenu.offsetHeight || 150;
-            if (top + menuHeight > viewportHeight) {
-                top = toggleRect.top - menuHeight - 8;
-            }
-            
-            // Vérifier si le menu sort à droite
-            if (right + menuWidth > viewportWidth) {
-                right = 'auto';
-                left = viewportWidth - toggleRect.left;
-            }
-            
-            // Appliquer les styles
-            dropdownMenu.style.top = top + 'px';
-            dropdownMenu.style.right = typeof right === 'number' ? right + 'px' : right;
-            dropdownMenu.style.left = left;
-            dropdownMenu.style.position = 'fixed';
+      }, 150);
+    });
+
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (isMobile()) return;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (dropdownToggle.getAttribute('aria-expanded') === 'true') {
+          positionMenu();
         }
-    }
-    
-    // Gestion du menu déroulant
-    if (dropdownToggle && dropdown && dropdownMenu) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            
-            // Positionner le menu
-            setTimeout(() => positionMenu(), 10);
-        });
+      }, 50);
+    }, true);
 
-        // Repositionner au redimensionnement avec debounce
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                if (dropdownToggle.getAttribute('aria-expanded') === 'true') {
-                    positionMenu();
-                }
-            }, 150);
-        });
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        if (isMobile()) dropdownMenu.classList.remove('show');
+      }
+    });
+  }
 
-        // Repositionner au scroll avec debounce
-        let scrollTimeout;
-        window.addEventListener('scroll', function() {
-            if (isMobile()) return; // Pas besoin sur mobile
-            
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                if (dropdownToggle.getAttribute('aria-expanded') === 'true') {
-                    positionMenu();
-                }
-            }, 50);
-        }, true);
+  if (nav && 'ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(() => {});
+    resizeObserver.observe(nav);
+  }
 
-        // Fermer le menu en cliquant à l'extérieur
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownToggle.setAttribute('aria-expanded', 'false');
-                if (isMobile()) {
-                    dropdownMenu.classList.remove('show');
-                }
-            }
-        });
+  if ('IntersectionObserver' in window) {
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('footer [class^="footer-part-"]').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  }
+});
+
+/* =========================================================
+   CALENDRIER (affiche les jours + dispatch event)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("calendar-grid");
+  const monthEl = document.getElementById("current-month");
+  const prevBtn = document.getElementById("prev-month");
+  const nextBtn = document.getElementById("next-month");
+  const hiddenDate = document.getElementById("reservation-date");
+  const slotsSection = document.getElementById("slots-section");
+  const slotsDateText = document.querySelector(".slots-date");
+
+  if (!grid || !monthEl) return;
+
+  let current = new Date(2026, 0, 1);
+
+  const unavailable = new Set(["2026-01-02", "2026-01-03", "2026-01-04", "2026-01-12", "2026-01-21"]);
+
+  const pad2 = (n) => String(n).padStart(2, "0");
+  const iso = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+
+  const monthNames = [
+    "Janvier","Février","Mars","Avril","Mai","Juin",
+    "Juillet","Août","Septembre","Octobre","Novembre","Décembre"
+  ];
+
+  function formatFr(dateISO) {
+    const [y, m, d] = dateISO.split("-");
+    const dt = new Date(Number(y), Number(m) - 1, Number(d));
+    const days = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+    return `${days[dt.getDay()]} ${d} ${monthNames[dt.getMonth()]} ${y}`;
+  }
+
+  function clearSelectedDays() {
+    document.querySelectorAll(".day-btn.is-selected")
+      .forEach(b => b.classList.remove("is-selected"));
+  }
+
+  function renderCalendar() {
+    grid.innerHTML = "";
+
+    const year = current.getFullYear();
+    const month = current.getMonth();
+
+    monthEl.textContent = `${monthNames[month]} ${year}`;
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    const mondayIndex = (firstDay.getDay() + 6) % 7;
+
+    for (let i = 0; i < mondayIndex; i++) {
+      const empty = document.createElement("div");
+      empty.className = "day-empty";
+      grid.appendChild(empty);
     }
-    
-    // Gestion responsive du nav
-    if (nav) {
-        // Observer les changements de taille pour ajuster dynamiquement
-        const resizeObserver = new ResizeObserver(() => {
-            // Ajustements dynamiques si nécessaire
-        });
-        
-        resizeObserver.observe(nav);
+
+    for (let day = 1; day <= lastDay.getDate(); day++) {
+      const d = new Date(year, month, day);
+      const dateISO = iso(d);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "day-btn";
+      btn.textContent = String(day);
+      btn.dataset.date = dateISO;
+
+      if (unavailable.has(dateISO)) btn.classList.add("is-unavailable");
+
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("is-unavailable")) return;
+
+        clearSelectedDays();
+        btn.classList.add("is-selected");
+
+        if (hiddenDate) hiddenDate.value = dateISO;
+
+        if (slotsSection) {
+          slotsSection.classList.remove("is-hidden");
+          if (slotsDateText) slotsDateText.textContent = formatFr(dateISO);
+        }
+
+        // ✅ event pour la section créneaux
+        document.dispatchEvent(new CustomEvent("reservation:dateSelected", {
+          detail: { dateISO }
+        }));
+      });
+
+      grid.appendChild(btn);
     }
-    
-    // Améliorer les performances avec Intersection Observer pour les animations
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observer les éléments du footer pour animations
-        document.querySelectorAll('footer [class^="footer-part-"]').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    }
+  }
+
+  prevBtn?.addEventListener("click", () => {
+    current = new Date(current.getFullYear(), current.getMonth() - 1, 1);
+    renderCalendar();
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    current = new Date(current.getFullYear(), current.getMonth() + 1, 1);
+    renderCalendar();
+  });
+
+  renderCalendar();
+});
+
+/* =========================================================
+   CRENEAUX (écoute l’event dateSelected)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const slotsSection = document.getElementById("slots-section");
+  const slotsGrid = document.getElementById("slots-grid");
+  const slotsDateText = document.querySelector(".slots-date");
+
+  const dateHidden = document.getElementById("reservation-date");
+  const fromHidden = document.getElementById("reservation-from");
+  const toHidden = document.getElementById("reservation-to");
+
+  const fromSelect = document.getElementById("from-time");
+  const toSelect = document.getElementById("to-time");
+  const validateBtn = document.getElementById("validate-slots");
+
+  if (!slotsSection || !slotsGrid || !fromSelect || !toSelect || !validateBtn) return;
+
+  const allSlots = [
+    "08:00","08:30","09:00","09:30","10:00","10:30","11:00",
+    "11:30","12:00","12:30","13:00","13:30","14:00","14:30",
+    "15:00","15:30","16:00","16:30","17:00","17:30","18:00"
+  ];
+
+  const bookedByDate = {
+    "2026-01-24": new Set(["09:30","10:00","10:30","13:30","14:00","14:30","15:00","16:00","16:30"])
+  };
+
+  function fillSelect(selectEl) {
+    selectEl.innerHTML = `<option value="">--:--</option>`;
+    allSlots.forEach(t => {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      selectEl.appendChild(opt);
+    });
+  }
+
+  fillSelect(fromSelect);
+  fillSelect(toSelect);
+
+  function formatFr(dateISO) {
+    const [y, m, d] = dateISO.split("-");
+    const dt = new Date(Number(y), Number(m) - 1, Number(d));
+    const days = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+    const months = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+    return `${days[dt.getDay()]} ${d} ${months[dt.getMonth()]} ${y}`;
+  }
+
+  function setValidateState() {
+    validateBtn.disabled = !(fromSelect.value && toSelect.value);
+  }
+
+  function renderSlots(dateISO) {
+    slotsGrid.innerHTML = "";
+    const booked = bookedByDate[dateISO] ?? new Set();
+
+    allSlots.forEach(time => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "slot-btn";
+      btn.textContent = time;
+
+      if (booked.has(time)) btn.classList.add("is-unavailable");
+
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("is-unavailable")) return;
+
+        document.querySelectorAll(".slot-btn.is-selected")
+          .forEach(b => b.classList.remove("is-selected"));
+
+        btn.classList.add("is-selected");
+
+        fromSelect.value = time;
+
+        const idx = allSlots.indexOf(time);
+        const to = allSlots[Math.min(idx + 2, allSlots.length - 1)];
+        toSelect.value = to;
+
+        setValidateState();
+      });
+
+      slotsGrid.appendChild(btn);
+    });
+  }
+
+  function openSlots(dateISO) {
+    slotsSection.classList.remove("is-hidden");
+    if (slotsDateText) slotsDateText.textContent = formatFr(dateISO);
+
+    if (dateHidden) dateHidden.value = dateISO;
+
+    fromSelect.value = "";
+    toSelect.value = "";
+    if (fromHidden) fromHidden.value = "";
+    if (toHidden) toHidden.value = "";
+    validateBtn.disabled = true;
+
+    renderSlots(dateISO);
+
+    slotsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("reservation:dateSelected", (e) => {
+    openSlots(e.detail.dateISO);
+  });
+
+  fromSelect.addEventListener("change", setValidateState);
+  toSelect.addEventListener("change", setValidateState);
+
+  validateBtn.addEventListener("click", () => {
+    if (!fromSelect.value || !toSelect.value) return;
+
+    if (fromHidden) fromHidden.value = fromSelect.value;
+    if (toHidden) toHidden.value = toSelect.value;
+
+    const original = validateBtn.textContent;
+    validateBtn.textContent = "OK ✔";
+    setTimeout(() => (validateBtn.textContent = original), 900);
+  });
 });

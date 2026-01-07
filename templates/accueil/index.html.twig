@@ -3,29 +3,30 @@
 {% block title %}Accueil{% endblock %}
 
 {% block main %}
-<div class="banniere relative w-full min-h-screen h-auto flex items-center justify-center overflow-hidden sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]" style="background: #9286EA;">
-    <img src="{{ asset('images/banniere.png') }}" alt="Bannière" class="absolute inset-0 w-full h-full object-cover z-0 min-h-[60vh] sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
+<div class="banniere relative w-full min-h-screen h-auto flex items-center justify-center overflow-hidden sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
+    <img src="{{ asset('images/banniere_accueil.png') }}" alt="Bannière" class="absolute inset-0 w-full h-full object-cover z-0 min-h-[60vh] sm:min-h-[50vh] xs:min-h-[40vh] lg:min-h-[70vh]">
     <div class="banniere-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10 w-full max-w-full p-4 sm:p-3 xs:p-2">
-        <h1 style="color: white; font-size: 60px; font-family: 'CRONDE', sans-serif; font-weight: 400; letter-spacing: 9px;">DIVINATION</h1>
+        <h1 style="color: white; font-size: 85px; font-family: 'Lobster Two', sans-serif; font-weight: 400; text-decoration: underline;">DIVINATION</h1>
     </div>
 </div>
 <div class="informations bg-nav-bg flex items-center justify-center gap-12 py-16 px-8 w-full box-border relative overflow-hidden sm:flex-col sm:gap-8 sm:py-12 sm:px-6 xs:py-8 xs:px-4 xs:gap-6">
-    <div class="informations-image flex-1 flex items-center justify-center overflow-hidden rounded-t-[50%] z-10 sm:flex-[1_1_100%] sm:max-w-full sm:w-full">
-        <img src="{{ asset('images/blanc.png') }}" alt="Informations" class="w-[70%] h-auto block object-cover transition-transform duration-300 hover:scale-105">
+    <div class="informations-image flex-1 flex items-center justify-center z-10 sm:flex-[1_1_100%] sm:max-w-full sm:w-full">
+        <img src="{{ asset('images/qui_sommes_nous.png') }}" alt="Qui sommes-nous" class="w-[368px] h-[479px] block object-cover">
     </div>
     <div class="informations-content flex-1 px-4 z-10 sm:flex-[1_1_100%] sm:p-0 sm:text-center xs:p-0">
         <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold m-0 mb-6 text-white xs:text-2xl">Qui sommes-nous ?</h2>
-        <p class="text-[clamp(1rem,2vw,1.125rem)] leading-[1.8] text-white m-0 mb-4 xs:text-[0.95rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        <p class="text-[clamp(1rem,2vw,1.125rem)] leading-[1.8] text-white m-0 mb-4 xs:text-[0.95rem]">Aurora est une agence de divination moderne qui allie traditions spirituelles et outils contemporains afin d'offrir une expérience fiable, accessible et personnalisée.<br/><br/>Notre mission est d'accompagner chacun dans ses questionnements personnels, émotionnels ou spirituels, en proposant des services de divination sérieux, encadrés et respectueux, disponibles en ligne ou à domicile.<br/><br/><br/>À travers la voyance, l'astrologie, la purification ou encore la lithothérapie, nous mettons en lumière les énergies qui influencent votre quotidien pour vous aider à avancer avec plus de clarté et de sérénité.</p>
     </div>
 </div>
+
 <section class="what-we-offer py-16 px-8 bg-light-background">
     <h2 class="section-title text-center text-3xl font-bold mb-12">Ce que l'on propose</h2>
 
     <!-- La divination -->
     <div class="offer-item flex items-center justify-center gap-12 mb-16 sm:flex-col sm:gap-8">
         <div class="offer-content flex-1 text-left sm:text-center">
-            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La divination</h3>
-            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">Divination</h3>
+            <p class="text-gray-700 leading-relaxed">La divination permet d'éclairer votre présent et d'anticiper les grandes tendances de votre avenir. À travers différents arts divinatoires, nos spécialistes vous accompagnent dans vos questionnements personnels, sentimentaux ou professionnels, en vous offrant une lecture claire et bienveillante des énergies qui vous entourent.</p>
         </div>
         <div class="offer-image flex-1 flex justify-center">
             <img src="{{ asset('images/crystal ball no watermark.png') }}" alt="Divination" class="max-w-[35%] h-auto">
@@ -41,7 +42,7 @@
         </div>
         <div class="offer-content flex-1 text-left sm:text-center">
             <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La purification</h3>
-            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p class="text-gray-700 leading-relaxed">La purification vise à rétablir l'harmonie d'un lieu ou d'une personne en dissipant les énergies négatives accumulées. Grâce à des rituels adaptés et respectueux des traditions, nos praticiens vous aident à retrouver un environnement apaisé, propice au bien-être et à l'équilibre intérieur.</p>
         </div>
     </div>
 
@@ -51,7 +52,7 @@
     <div class="offer-item flex items-center justify-center gap-12 mb-16 sm:flex-col sm:gap-8">
         <div class="offer-content flex-1 text-left sm:text-center">
             <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">L'astrologie</h3>
-            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p class="text-gray-700 leading-relaxed">L'astrologie repose sur l'étude des astres et de leur influence sur votre personnalité et votre parcours de vie. En analysant votre thème astral ou les mouvements planétaires, nous vous proposons un éclairage précis sur vos cycles de vie, vos opportunités et vos défis à venir.</p>
         </div>
         <div class="offer-image flex-1 flex justify-center">
             <img src="{{ asset('images/hand_with_planets.png') }}" alt="Astrologie" class="max-w-[35%] h-auto">
@@ -67,13 +68,13 @@
         </div>
         <div class="offer-content flex-1 text-left sm:text-center">
             <h3 class="text-2xl font-semibold mb-4 text-dark-grey-background">La lithothérapie</h3>
-            <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p class="text-gray-700 leading-relaxed">La lithothérapie utilise l'énergie des pierres et des cristaux pour favoriser l'harmonie du corps et de l'esprit. Chaque pierre est choisie avec soin en fonction de vos besoins afin de vous accompagner dans votre recherche d'équilibre, de protection ou de sérénité au quotidien.</p>
         </div>
     </div>
 </section>
 
 <section class="oracle-section bg-dark-grey-background py-16 px-8 text-center text-white relative overflow-hidden">
-    <h2 class="section-title text-3xl font-bold mb-8 relative z-10">Cliquez pour découvrir votre oracle du jour !</h2>
+    <h2 class="section-title text-3xl font-bold mb-8 relative z-10">Cliquez pour découvrir oracle du jour !</h2>
     <div class="oracle-card-container relative w-64 h-96 mx-auto mb-8 cursor-pointer transform transition-transform duration-300 hover:scale-105 z-10">
         <img src="{{ asset('images/Aurora_carte-mystere.png') }}" alt="Carte de Tarot" class="w-full h-full object-contain">
     </div>
@@ -81,39 +82,39 @@
 
 <section class="newsletter-section py-16 px-8 bg-light-background">
     <h2 class="section-title text-center text-3xl font-bold mb-12">Newsletter</h2>
-    <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">La newsletter Aurora vous propose des contenus exclusifs, des messages inspirants pour vous guider au quotidien. C'est un rendez-vous privilégié pour prendre un moment pour vous, en lien avec les énergies du moment et les pratiques de nos spécialistes.<br/> Retrouvez ici les dernières exclusivités.</p>
 
     <div class="articles-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ asset('images/rockies.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+        <div class="article-card bg-white shadow-lg rounded-lg">
+            <img src="{{ asset('images/phases_lune.png') }}" alt="Les phases de la lune" class="w-full h-40 object-cover">
             <div class="p-2 bg-dark-grey-background text-white text-left">
-                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
-                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
+                <h3 class="text-xl font-semibold mb-2">Les phases de la lune</h3>
+                <p class="text-sm mb-1">Découvrez comment les cycles lunaires impactent votre énergie, votre humeur et vos décisions quotidiennes. Une lecture essentielle pour mieux comprendre vos ressentis.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article →</a>
             </div>
         </div>
-        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ asset('images/rocks.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+        <div class="article-card bg-white shadow-lg rounded-lg">
+            <img src="{{ asset('images/choisir_pierre.png') }}" alt="Comment choisir votre pierre ?" class="w-full h-40 object-cover">
             <div class="p-2 bg-dark-grey-background text-white text-left">
-                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
-                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
+                <h3 class="text-xl font-semibold mb-2">Comment choisir votre pierre ?</h3>
+                <p class="text-sm mb-1">Chaque pierre possède une énergie unique. Apprenez à identifier celle qui répond le mieux à vos besoins émotionnels, spirituels ou énergétiques.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article →</a>
             </div>
         </div>
-        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ asset('images/hand_with_planets.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+        <div class="article-card bg-white shadow-lg rounded-lg">
+            <img src="{{ asset('images/energies.png') }}" alt="Les énergies de la semaine à venir" class="w-full h-40 object-cover">
             <div class="p-2 bg-dark-grey-background text-white text-left">
-                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
-                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
+                <h3 class="text-xl font-semibold mb-2">Les énergies de la semaine à venir</h3>
+                <p class="text-sm mb-1">Les mouvements planétaires de cette semaine invitent à la réflexion et à l'introspection. C'est une période propice pour prendre du recul et écouter ses ressentis.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article →</a>
             </div>
         </div>
-        <div class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ asset('images/phases_de_la_lune.png') }}" alt="Article Image" class="w-full h-40 object-cover">
+        <div class="article-card bg-white shadow-lg rounded-lg">
+            <img src="{{ asset('images/divination_article.png') }}" alt="Mythe ou outil de guidance ?" class="w-full h-40 object-cover">
             <div class="p-2 bg-dark-grey-background text-white text-left">
-                <h3 class="text-xl font-semibold mb-2">Titre de l'article</h3>
-                <p class="text-sm mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-                <a href="#" class="text-primary-purple hover:underline">Lire l'article ></a>
+                <h3 class="text-xl font-semibold mb-2">Mythe ou outil de guidance ?</h3>
+                <p class="text-sm mb-1">La divination suscite de nombreuses interrogations. Cet article vous aide à mieux comprendre son rôle et son utilité dans une démarche personnelle.</p>
+                <a href="#" class="text-primary-purple hover:underline">Lire l'article →</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,357 @@
+.inscription-page {
+  background: $accent-purple-light; // #9286EA
+  padding: 80px 0 0; // Pas de padding-bottom, la section rassurance et le footer gèrent l'espace
+  font-family: $font-main;
+  width: 100%;
+}
+
+.inscription-hero {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.inscription-title {
+  font-family: $font-title;
+  font-size: clamp(3.5rem, 8vw, 5.3125rem); // 85px
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto 40px;
+  width: fit-content;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 441px;
+    max-width: 100%;
+    background: #fff;
+    margin: 10px auto 0;
+  }
+}
+
+.inscription-card {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: $light-background; // Blanc
+  border-radius: 30px;
+  box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.30);
+  padding: 66px 74px 20px; // Padding bottom encore réduit pour rapprocher de la section rassurance
+  margin-bottom: 0; // Pas de marge en bas, la section rassurance suit
+}
+
+.inscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; // Espacement entre les sections selon maquette (réduit pour correspondre)
+}
+
+/* --------- Champs --------- */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0; // Pas de gap, on gère l'espacement avec margin-bottom
+
+  label,
+  legend {
+    font-family: $font-main; // Poppins
+    font-size: clamp(1.25rem, 2vw, 1.5625rem); // 25px
+    font-weight: 700;
+    color: #2E2D3F; // $bg-dark-main
+    margin-bottom: 0; // Pas de marge, l'input suit directement
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+    height: 60px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background: #fff;
+    padding: 13px 16px;
+    font-family: $font-main; // Poppins
+    font-size: clamp(1.25rem, 2vw, 1.5625rem); // 25px
+    font-weight: 700;
+    color: #2E2D3F;
+    outline: 4px solid #2E2D3F;
+    outline-offset: -4px;
+    box-sizing: border-box;
+    margin-top: 53px; // Espacement entre label et input selon maquette (336px -> 389px = 53px)
+
+    &::placeholder {
+      color: #9286EA; // $accent-purple-light
+      opacity: 0.70;
+      font-weight: 700;
+    }
+
+    &:focus {
+      outline: 4px solid #2E2D3F;
+      outline-offset: -4px;
+    }
+  }
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 50px; // Gap horizontal seulement, pas vertical
+  margin-bottom: 0;
+}
+
+.form-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0; // Pas de gap vertical, géré par inscription-form
+  margin-bottom: 0;
+  
+  .form-field {
+    margin-bottom: 0; // Pas de marge entre les champs
+  }
+}
+
+/* --------- Section photo de profil --------- */
+.profil-section {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 0; // Pas de marge, géré par inscription-form
+  
+  // S'assurer que le titre et la grille sont dans la première colonne
+  .section-title {
+    grid-column: 1;
+  }
+  
+  .profil-grid {
+    grid-column: 1;
+  }
+  
+  .profil-preview {
+    grid-column: 2;
+    grid-row: 2; // S'aligne avec la grille de photos (pas avec le titre)
+    align-self: start; // Aligné en haut
+    border-radius: 100%;
+  }
+}
+
+.section-title {
+  font-family: $font-main; // Poppins
+  font-size: clamp(1.25rem, 2vw, 1.5625rem); // 25px
+  font-weight: 700;
+  color: #2E2D3F; // $bg-dark-main
+  margin: 0 0 0; // Pas de marge en bas, la grille suit directement
+}
+
+.profil-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 104px);
+  gap: 38px 34px; // Gap vertical selon maquette (982px - 840px - 104px = 38px)
+  margin-top: 46px; // Espacement entre titre et grille (840px - 794px = 46px)
+}
+
+.profil-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profil-label {
+  width: 104px;
+  height: 104px;
+  border-radius: 9999px !important; // Force le cercle
+  background: #d9d9d9;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  overflow: hidden; // Assure que l'image reste dans le cercle
+
+  img {
+    width: 104px;
+    height: 104px;
+    border-radius: 9999px !important; // Force le cercle pour toutes les images
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.profil-choice input:checked + .profil-label {
+  outline: 4px solid $bg-dark-main;
+  outline-offset: 0;
+}
+
+.profil-preview {
+  width: 250px;
+  height: 250px;
+  background: #d9d9d9;
+  border: 3px solid #000;
+}
+
+/* --------- Bas : âge + sexe --------- */
+.form-bottom {
+  margin-top: 0; // Pas de marge, géré par inscription-form
+}
+
+.form-sexe legend {
+  margin-bottom: 0; // Pas de marge, la liste suit directement
+}
+
+.sexe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0; // Pas de gap, les éléments sont espacés par leur propre marge
+  margin-top: 0;
+}
+
+.sexe-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sexe-choice {
+  margin-bottom: 0; // Pas de marge entre les choix
+  
+  &:not(:last-child) {
+    margin-bottom: 24px; // Marge seulement entre les éléments
+  }
+}
+
+.sexe-choice label {
+  position: relative;
+  padding-left: 52px;
+  font-size: 25px;
+  font-weight: 700;
+  color: $bg-dark-main;
+  cursor: pointer;
+}
+
+.sexe-choice label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 4px solid $bg-dark-main;
+  background: #fff;
+}
+
+.sexe-choice input:checked + label::before {
+  background: $bg-dark-main;
+}
+
+/* --------- Newsletter --------- */
+.newsletter-field {
+  display: flex;
+  align-items: center;
+  gap: 40px; // Gap selon maquette (429px - 389px = 40px)
+  margin-top: 0; // Pas de marge, géré par inscription-form
+
+  input {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    accent-color: $bg-dark-main;
+  }
+
+  label {
+    font-size: 25px;
+    font-weight: 700;
+    color: $bg-dark-main;
+    margin: 0;
+  }
+}
+
+/* --------- Bouton --------- */
+.btn-inscription {
+  margin: 0 auto 0; // Pas de marge en haut, géré par inscription-form
+  min-width: 402px;
+  min-height: 89px;
+  padding: 26px 124px;
+  border: none;
+  border-radius: 30px;
+  background: $accent-pink-purple;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* --------- Bandeau blanc rassurance --------- */
+.inscription-reassurance {
+  background: #fff;
+  margin-top: 0; // Pas de marge, suit directement la carte
+  padding: 10px 0 40px; // Padding top très réduit pour rapprocher du formulaire
+  width: 100%;
+}
+
+.inscription-reassurance .reassurance-container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+  align-items: start;
+  padding: 0 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.inscription-reassurance .reassurance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+
+  p {
+    margin: 16px 0 0;
+    font-family: $font-main; // Poppins
+    font-size: clamp(0.875rem, 1.2vw, 0.9375rem); // 15px
+    font-weight: 400;
+    letter-spacing: 0.75px;
+    line-height: 1.35;
+    color: #2E2D3F;
+  }
+}
+
+.inscription-reassurance .reassurance-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0); // Icônes noires
+}

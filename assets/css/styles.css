@@ -319,11 +319,24 @@ main {
   align-items: center;
   gap: 3rem;
 }
+@media (max-width: 768px) {
+  .what-we-offer .offer-item {
+    flex-direction: column !important;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+}
 .what-we-offer .offer-item:last-of-type {
   margin-bottom: 0;
 }
 .what-we-offer .offer-item .offer-content {
   flex: 1.5;
+}
+@media (max-width: 768px) {
+  .what-we-offer .offer-item .offer-content {
+    text-align: center;
+    width: 100%;
+  }
 }
 .what-we-offer .offer-item .offer-content h3 {
   color: #2E2D3F;
@@ -336,6 +349,11 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.6rem;
+}
+@media (max-width: 768px) {
+  .what-we-offer .offer-item .offer-content h3 {
+    align-items: center;
+  }
 }
 .what-we-offer .offer-item .offer-content h3::after {
   content: "";
@@ -353,10 +371,22 @@ main {
   margin: 0;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .what-we-offer .offer-item .offer-content p {
+    text-align: center;
+  }
+}
 .what-we-offer .offer-item .offer-image {
   flex: 0.7;
   display: flex;
   justify-content: center;
+}
+@media (max-width: 768px) {
+  .what-we-offer .offer-item .offer-image {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 .what-we-offer .offer-item .offer-image img {
   max-width: 100%;
@@ -468,12 +498,25 @@ main {
   position: relative;
   width: 335px;
   height: 498px;
+  max-width: 90%;
   margin: 0 auto 2rem auto;
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
   outline: 4px solid #ffffff;
   outline-offset: 0;
+}
+@media (max-width: 768px) {
+  .oracle-section .oracle-card-container {
+    width: 280px;
+    height: auto;
+    aspect-ratio: 335/498;
+  }
+}
+@media (max-width: 480px) {
+  .oracle-section .oracle-card-container {
+    width: 250px;
+  }
 }
 .oracle-section .oracle-card-container:hover {
   transform: scale(1.05);
@@ -493,6 +536,16 @@ main {
   color: #8A2BE2;
   z-index: 10;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px) {
+  .oracle-section .oracle-card-container .oracle-question {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 480px) {
+  .oracle-section .oracle-card-container .oracle-question {
+    font-size: 3rem;
+  }
 }
 @media (max-width: 768px) {
   .oracle-section {
@@ -1502,17 +1555,26 @@ footer .footer-part-3 > div a:hover {
 }
 
 /* ✅ HEADER aligné comme la maquette */
-.calendar-top {
-  display: grid;
-  grid-template-columns: 320px 1fr;
+.calendar-top-bar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .calendar-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 }
 
-.month-row {
+.month-display {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .current-month {
@@ -1542,13 +1604,23 @@ footer .footer-part-3 > div a:hover {
   transform: scale(0.98);
 }
 
-/* ✅ légende centrée */
+/* ✅ légende à droite */
 .legend {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 18px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .legend {
+    justify-content: flex-start;
+    margin-left: 0;
+    width: 100%;
+    gap: 12px;
+  }
 }
 
 .legend-item {
@@ -1582,6 +1654,7 @@ footer .footer-part-3 > div a:hover {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
+  width: 100%;
 }
 .days-header div {
   text-align: center;
@@ -1589,6 +1662,14 @@ footer .footer-part-3 > div a:hover {
   font-weight: 900;
   font-size: 18px;
   color: rgba(46, 45, 63, 0.65);
+}
+@media (max-width: 768px) {
+  .days-header {
+    gap: 5px;
+  }
+  .days-header div {
+    font-size: 14px;
+  }
 }
 
 .calendar-grid {
@@ -1910,6 +1991,16 @@ footer .footer-part-3 > div a:hover {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .services-top-band {
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  .services-top-band {
+    height: 300px;
+  }
+}
 
 .services-hero {
   width: 1200px;
@@ -1922,7 +2013,8 @@ footer .footer-part-3 > div a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 2rem 20px;
+  box-sizing: border-box;
 }
 
 .services-title {
@@ -1956,6 +2048,16 @@ footer .footer-part-3 > div a:hover {
   z-index: 10;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .services-intro-section {
+    padding: 3rem 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .services-intro-section {
+    padding: 2rem 1rem;
+  }
+}
 
 .services-intro-container {
   width: 1200px;
@@ -1964,6 +2066,9 @@ footer .footer-part-3 > div a:hover {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .services-intro {
@@ -1978,6 +2083,12 @@ footer .footer-part-3 > div a:hover {
   color: #fff;
   flex: 1;
 }
+@media (max-width: 768px) {
+  .services-intro {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 .services-intro-visual {
   width: 438px;
@@ -1985,6 +2096,15 @@ footer .footer-part-3 > div a:hover {
   background: #d9d9d9;
   flex-shrink: 0;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .services-intro-visual {
+    width: 100%;
+    max-width: 438px;
+    margin: 0 auto;
+    aspect-ratio: 438/358;
+    height: auto;
+  }
 }
 .services-intro-visual img {
   width: 100%;
@@ -1994,8 +2114,20 @@ footer .footer-part-3 > div a:hover {
 
 .services-section {
   width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 80px 0 0;
+  padding: 80px 20px 0;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 15px 0;
+  }
+}
+@media (max-width: 480px) {
+  .services-section {
+    padding: 40px 10px 0;
+  }
 }
 
 .section-divider {
@@ -2043,12 +2175,29 @@ footer .footer-part-3 > div a:hover {
   text-align: left;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .sub-title {
+    text-align: center;
+    margin: 40px 0 20px;
+  }
+}
 
 .practitioners-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   padding-bottom: 40px;
+}
+@media (max-width: 992px) {
+  .practitioners-grid {
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .practitioners-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* --------- Carte praticien --------- */
@@ -2058,12 +2207,28 @@ footer .footer-part-3 > div a:hover {
   gap: 34px;
   align-items: start;
 }
+@media (max-width: 768px) {
+  .practitioner-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 
 .card-media {
   width: 285px;
   height: 360px;
   background: #d9d9d9;
   overflow: hidden;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .card-media {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 285/360;
+    height: auto;
+  }
 }
 .card-media img {
   width: 100%;
@@ -2073,6 +2238,11 @@ footer .footer-part-3 > div a:hover {
 
 .card-body {
   max-width: 520px;
+}
+@media (max-width: 768px) {
+  .card-body {
+    max-width: 100%;
+  }
 }
 
 .card-name {
@@ -2152,6 +2322,15 @@ footer .footer-part-3 > div a:hover {
   flex-direction: column;
   gap: 18px;
 }
+@media (max-width: 768px) {
+  .card-actions {
+    gap: 12px;
+  }
+  .card-actions a {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 /* Bouton "Accéder aux témoignages" (outline violet) */
 .btn-outline-testimonials {
@@ -2174,6 +2353,12 @@ footer .footer-part-3 > div a:hover {
 }
 .btn-outline-testimonials:hover {
   opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .btn-outline-testimonials {
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 /* Bouton "Réserver avec cette personne" (outline rose) */
@@ -2198,6 +2383,12 @@ footer .footer-part-3 > div a:hover {
 .btn-outline-reserve:hover {
   opacity: 0.9;
 }
+@media (max-width: 768px) {
+  .btn-outline-reserve {
+    min-width: 100%;
+    width: 100%;
+  }
+}
 
 /* --------- Bandeau blanc rassurance --------- */
 .services-reassurance {
@@ -2208,11 +2399,26 @@ footer .footer-part-3 > div a:hover {
 
 .reassurance-container {
   width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 44px;
   align-items: start;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+@media (max-width: 992px) {
+  .reassurance-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .reassurance-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 .reassurance-item {
@@ -2588,6 +2794,23 @@ footer .footer-part-3 > div a:hover {
   padding: 66px 74px 20px;
   margin-bottom: 0;
 }
+@media (max-width: 992px) {
+  .inscription-card {
+    padding: 50px 40px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .inscription-card {
+    padding: 40px 20px 20px;
+    border-radius: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .inscription-card {
+    padding: 30px 15px 20px;
+    border-radius: 15px;
+  }
+}
 
 .inscription-form {
   display: flex;
@@ -2656,6 +2879,12 @@ fieldset {
   gap: 0 50px;
   margin-bottom: 0;
 }
+@media (max-width: 768px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
 
 .form-grid-1 {
   display: grid;
@@ -2674,6 +2903,12 @@ fieldset {
   gap: 60px;
   align-items: start;
   margin-bottom: 0;
+}
+@media (max-width: 992px) {
+  .profil-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 .profil-section .section-title {
   grid-column: 1;
@@ -2701,6 +2936,20 @@ fieldset {
   grid-template-columns: repeat(4, 104px);
   gap: 38px 34px;
   margin-top: 46px;
+}
+@media (max-width: 768px) {
+  .profil-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 400px;
+    margin: 30px auto 0;
+  }
+}
+@media (max-width: 480px) {
+  .profil-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 }
 
 .profil-choice input {
@@ -2737,6 +2986,19 @@ fieldset {
   height: 250px;
   background: #d9d9d9;
   border: 3px solid #000;
+}
+@media (max-width: 992px) {
+  .profil-preview {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .profil-preview {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* --------- Bas : âge + sexe --------- */
@@ -2831,6 +3093,14 @@ fieldset {
 }
 .btn-inscription:hover {
   opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .btn-inscription {
+    min-width: 100%;
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 20px;
+  }
 }
 
 /* --------- Bandeau blanc rassurance --------- */
@@ -2993,6 +3263,14 @@ fieldset {
   justify-content: center;
 }
 
+.histoire__image {
+  width: 100%;
+  max-width: 438px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+
 /* Logo placeholder */
 .histoire__logoBox {
   width: min(358px, 100%);
@@ -3045,11 +3323,13 @@ fieldset {
 .histoire__personBubble {
   width: min(337px, 100%);
   aspect-ratio: 337/440;
-  border-radius: 999px;
+  border-radius: 183.5px 183.5px 0 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 .histoire__personBubble--purple {
   background: #9286EA;
@@ -3064,6 +3344,13 @@ fieldset {
 }
 .histoire__personBubble--white span {
   color: #2E2D3F;
+}
+
+.histoire__personImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 183.5px 183.5px 0 0;
 }
 
 .histoire__name {
@@ -3103,16 +3390,27 @@ fieldset {
 .histoire__mapBox {
   width: 100%;
   height: clamp(320px, 45vw, 718px);
+  min-height: 400px;
   background: #D9D9D9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .histoire__mapBox span {
   font-family: "CRONDE", serif;
   font-size: clamp(22px, 3vw, 35px);
   letter-spacing: 2.1px;
   color: #000;
+}
+
+.histoire__mapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: 0;
+  display: block;
 }
 
 /* =========================

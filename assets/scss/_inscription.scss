@@ -47,6 +47,20 @@
   box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.30);
   padding: 66px 74px 20px; // Padding bottom encore réduit pour rapprocher de la section rassurance
   margin-bottom: 0; // Pas de marge en bas, la section rassurance suit
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 50px 40px 20px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 40px 20px 20px;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    padding: 30px 15px 20px;
+    border-radius: 15px;
+  }
 }
 
 .inscription-form {
@@ -113,6 +127,11 @@ fieldset {
   grid-template-columns: 1fr 1fr;
   gap: 0 50px; // Gap horizontal seulement, pas vertical
   margin-bottom: 0;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .form-grid-1 {
@@ -133,6 +152,11 @@ fieldset {
   gap: 60px;
   align-items: start;
   margin-bottom: 0; // Pas de marge, géré par inscription-form
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
   
   // S'assurer que le titre et la grille sont dans la première colonne
   .section-title {
@@ -164,6 +188,18 @@ fieldset {
   grid-template-columns: repeat(4, 104px);
   gap: 38px 34px; // Gap vertical selon maquette (982px - 840px - 104px = 38px)
   margin-top: 46px; // Espacement entre titre et grille (840px - 794px = 46px)
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 400px;
+    margin: 30px auto 0;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 }
 
 .profil-choice input {
@@ -201,6 +237,17 @@ fieldset {
   height: 250px;
   background: #d9d9d9;
   border: 3px solid #000;
+  
+  @media (max-width: $breakpoint-md) {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* --------- Bas : âge + sexe --------- */
@@ -298,6 +345,13 @@ fieldset {
 
   &:hover {
     opacity: 0.9;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    min-width: 100%;
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 20px;
   }
 }
 

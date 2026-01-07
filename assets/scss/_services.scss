@@ -13,6 +13,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @media (max-width: $breakpoint-sm) {
+    height: 400px;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    height: 300px;
+  }
 }
 
 .services-hero {
@@ -26,7 +34,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 2rem 20px;
+  box-sizing: border-box;
 }
 
 .services-title {
@@ -61,6 +70,14 @@
   position: relative;
   z-index: 10;
   width: 100%;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 3rem 1.5rem;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    padding: 2rem 1rem;
+  }
 }
 
 .services-intro-container {
@@ -70,6 +87,9 @@
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .services-intro {
@@ -83,6 +103,11 @@
   margin: 0;
   color: #fff;
   flex: 1;
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .services-intro-visual {
@@ -91,6 +116,14 @@
   background: #d9d9d9;
   flex-shrink: 0;
   overflow: hidden;
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    max-width: 438px;
+    margin: 0 auto;
+    aspect-ratio: 438 / 358;
+    height: auto;
+  }
   
   img {
     width: 100%;
@@ -101,8 +134,18 @@
 
 .services-section {
   width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 80px 0 0;
+  padding: 80px 20px 0;
+  box-sizing: border-box;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 60px 15px 0;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    padding: 40px 10px 0;
+  }
 }
 
 .section-divider {
@@ -147,6 +190,11 @@
   margin: 60px 0 30px;
   text-align: left;
   color: #fff;
+  
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+    margin: 40px 0 20px;
+  }
 }
 
 .practitioners-grid {
@@ -154,6 +202,15 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   padding-bottom: 40px;
+  
+  @media (max-width: $breakpoint-md) {
+    gap: 40px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* --------- Carte praticien --------- */
@@ -162,6 +219,11 @@
   grid-template-columns: 285px 1fr;
   gap: 34px;
   align-items: start;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .card-media {
@@ -169,6 +231,15 @@
   height: 360px;
   background: #d9d9d9;
   overflow: hidden;
+  flex-shrink: 0;
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 285 / 360;
+    height: auto;
+  }
   
   img {
     width: 100%;
@@ -179,6 +250,10 @@
 
 .card-body {
   max-width: 520px;
+  
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100%;
+  }
 }
 
 .card-name {
@@ -260,6 +335,15 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  
+  @media (max-width: $breakpoint-sm) {
+    gap: 12px;
+    
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 
 /* Bouton "Accéder aux témoignages" (outline violet) */
@@ -282,6 +366,11 @@
   box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
 
   &:hover { opacity: 0.9; }
+  
+  @media (max-width: $breakpoint-sm) {
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 /* Bouton "Réserver avec cette personne" (outline rose) */
@@ -304,6 +393,11 @@
   box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
 
   &:hover { opacity: 0.9; }
+  
+  @media (max-width: $breakpoint-sm) {
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 /* --------- Bandeau blanc rassurance --------- */
@@ -315,11 +409,24 @@
 
 .reassurance-container {
   width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 44px;
   align-items: start;
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 .reassurance-item {

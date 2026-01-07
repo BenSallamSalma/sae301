@@ -338,10 +338,22 @@ main {
         align-items: center;
         gap: 3rem;
         
+        @media (max-width: $breakpoint-sm) {
+            flex-direction: column !important;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
         &:last-of-type { margin-bottom: 0; }
 
         .offer-content {
             flex: 1.5;
+            
+            @media (max-width: $breakpoint-sm) {
+                text-align: center;
+                width: 100%;
+            }
+            
             h3 {
                 color: #2E2D3F;
                 font-family: $font-title !important;
@@ -353,6 +365,10 @@ main {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.6rem;
+                
+                @media (max-width: $breakpoint-sm) {
+                    align-items: center;
+                }
 
                 &::after {
                     content: '';
@@ -371,6 +387,10 @@ main {
                 font-size: clamp(0.9rem, 1.3vw, 1.0625rem); // Maquette : 17px
                 margin: 0;
                 font-weight: 400;
+                
+                @media (max-width: $breakpoint-sm) {
+                    text-align: center;
+                }
             }
         }
 
@@ -378,6 +398,13 @@ main {
             flex: 0.7;
             display: flex;
             justify-content: center;
+            
+            @media (max-width: $breakpoint-sm) {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
             img {
                 max-width: 100%;
                 height: auto;
@@ -483,12 +510,23 @@ main {
         position: relative;
         width: 335px;
         height: 498px;
+        max-width: 90%;
         margin: 0 auto 2rem auto;
         cursor: pointer;
         transform: scale(1);
         transition: transform 0.3s ease-in-out;
         outline: 4px solid #ffffff;
         outline-offset: 0;
+        
+        @media (max-width: $breakpoint-sm) {
+            width: 280px;
+            height: auto;
+            aspect-ratio: 335 / 498;
+        }
+        
+        @media (max-width: $breakpoint-xs) {
+            width: 250px;
+        }
         
         &:hover { transform: scale(1.05); }
         
@@ -508,6 +546,14 @@ main {
             color: $primary-purple; // Couleur du point d'interrogation
             z-index: 10;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            
+            @media (max-width: $breakpoint-sm) {
+                font-size: 4rem;
+            }
+            
+            @media (max-width: $breakpoint-xs) {
+                font-size: 3rem;
+            }
         }
     }
 

@@ -33,9 +33,7 @@
         </div>
 
         <div class="histoire__media">
-          <div class="histoire__logoBox" aria-hidden="true">
-            <span>Logo icône</span>
-          </div>
+          <img src="{{ asset('images/aurora_notre_histoire.png') }}" alt="Au commencement" class="histoire__image">
         </div>
       </div>
 
@@ -48,9 +46,7 @@
 
       <div class="histoire__split histoire__split--reverse">
         <div class="histoire__media">
-          <div class="histoire__bubble">
-            <span>Photo</span>
-          </div>
+          <img src="{{ asset('images/nos_idees.png') }}" alt="Nos idées" class="histoire__image">
         </div>
 
         <div class="histoire__text histoire__text--white">
@@ -86,21 +82,21 @@
       <div class="histoire__cards2">
         <article class="histoire__person">
           <div class="histoire__personBubble histoire__personBubble--purple">
-            <span>Photo</span>
+            <img src="{{ asset('images/salma.png') }}" alt="Salma BEN SALLAM" class="histoire__personImage">
           </div>
           <h3 class="histoire__name">Salma BEN SALLAM</h3>
           <p class="histoire__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            Dev Front
           </p>
         </article>
 
         <article class="histoire__person">
           <div class="histoire__personBubble histoire__personBubble--purple">
-            <span>Photo</span>
+            <img src="{{ asset('images/vivian.png') }}" alt="Vivian ANTOINE" class="histoire__personImage">
           </div>
           <h3 class="histoire__name">Vivian ANTOINE</h3>
           <p class="histoire__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            Dev Back
           </p>
         </article>
       </div>
@@ -120,51 +116,23 @@
       <div class="histoire__cards2">
         <article class="histoire__person">
           <div class="histoire__personBubble histoire__personBubble--white">
-            <span>Photo</span>
+            <img src="{{ asset('images/lauren.png') }}" alt="Lauren LAMOUREUX" class="histoire__personImage">
           </div>
           <h3 class="histoire__name histoire__name--white">Lauren LAMOUREUX</h3>
           <p class="histoire__desc histoire__desc--white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            Graphisme, Communication
           </p>
         </article>
 
         <article class="histoire__person">
           <div class="histoire__personBubble histoire__personBubble--white">
-            <span>Photo</span>
+            <img src="{{ asset('images/mush.png') }}" alt="Mush BIEGA" class="histoire__personImage">
           </div>
           <h3 class="histoire__name histoire__name--white">Mush BIEGA</h3>
           <p class="histoire__desc histoire__desc--white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            Graphiste
           </p>
         </article>
-      </div>
-
-    </div>
-  </section>
-
-  {# =================== LA DIVINATION (CLAIR) =================== #}
-  <section class="histoire__section histoire__section--light">
-    <div class="histoire__container">
-
-      <div class="histoire__split">
-        <div class="histoire__text">
-          <h2 class="histoire__h2">La divination</h2>
-          <span class="histoire__line"></span>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div class="histoire__media">
-          <div class="histoire__rightTitle">
-            <h2 class="histoire__h2 histoire__h2--right">Nos idées</h2>
-            <span class="histoire__line histoire__line--right"></span>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -181,7 +149,14 @@
 
       <div class="histoire__map">
         <div class="histoire__mapBox">
-          <span>Carte</span>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937606!2d2.292292615674389!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1704636000000!5m2!1sfr!2sfr"
+            class="histoire__mapIframe"
+            allowfullscreen="true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Carte Google Maps - Où nous trouver">
+          </iframe>
         </div>
       </div>
 

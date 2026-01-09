@@ -1,4 +1,6 @@
 // --- Variables Supplémentaires (Page Actualités) ---
+@import 'variables';
+
 $accent-purple-light: #9286EA;
 $accent-pink-purple: #BA68BC;
 $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
@@ -22,7 +24,7 @@ $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
 .news-page {
     // Titre principal
     .title-main {
-        font-family: 'CRONDE', serif;
+        font-family: $font-title; // Lustria pour H1
         font-size: 4rem;
         color: $accent-purple-light;
         text-align: center;

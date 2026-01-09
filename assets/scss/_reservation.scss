@@ -1,6 +1,8 @@
 /* =========================
    VARIABLES
 ========================= */
+@import 'variables';
+
 $bg-purple: #9286EA;
 $dark: #2E2D3F;
 $accent: #BA68BC;
@@ -31,7 +33,7 @@ $res-radius: 30px;
 }
 
 .reservation-title {
-  font-family: CRONDE, serif;
+  font-family: $font-title; // Lustria pour H1
   font-size: clamp(42px, 4.8vw, 85px);
   font-weight: 400;
   color: $white;
@@ -54,9 +56,9 @@ $res-radius: 30px;
 }
 
 .section-label {
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-size: clamp(22px, 2.4vw, 32px);
-  font-weight: 800;
+  font-weight: 700; // Bold pour les titres de composants
   letter-spacing: 1.2px;
   color: rgba(255, 255, 255, 0.90);
   margin: 0 0 10px;
@@ -86,8 +88,8 @@ $res-radius: 30px;
   gap: 10px;
 
   label {
-    font-family: Poppins, sans-serif;
-    font-weight: 800;
+    font-family: $font-main; // Poppins
+    font-weight: 700; // Bold pour les titres de composants
     font-size: 20px;
     letter-spacing: 1px;
     color: $dark;
@@ -102,9 +104,9 @@ $res-radius: 30px;
     outline-offset: -4px;
     padding: 0 16px;
 
-    font-family: Poppins, sans-serif;
+    font-family: $font-main; // Poppins
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     color: $dark;
 
     &::placeholder {
@@ -148,8 +150,8 @@ $res-radius: 30px;
 }
 
 .current-month {
-  font-family: Poppins, sans-serif;
-  font-weight: 900;
+  font-family: $font-main; // Poppins
+  font-weight: 700; // Bold pour les titres de composants
   font-size: 28px;
   letter-spacing: 1.6px;
   color: $accent;
@@ -197,9 +199,9 @@ $res-radius: 30px;
   gap: 10px;
 
   span:last-child {
-    font-family: Poppins, sans-serif;
+    font-family: $font-main; // Poppins
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700; // Bold pour les titres de composants
     color: rgba($dark, 0.65);
     letter-spacing: 0.6px;
     white-space: nowrap;
@@ -224,8 +226,8 @@ $res-radius: 30px;
 
   div {
     text-align: center;
-    font-family: Poppins, sans-serif;
-    font-weight: 900;
+    font-family: $font-main; // Poppins
+    font-weight: 700; // Bold pour les titres de composants
     font-size: 18px;
     color: rgba($dark, 0.65);
   }
@@ -256,8 +258,8 @@ $res-radius: 30px;
   align-items: center;
   justify-content: center;
 
-  font-family: Poppins, sans-serif;
-  font-weight: 900;
+  font-family: $font-main; // Poppins
+  font-weight: 700; // Bold pour les boutons
   font-size: 22px;
   line-height: 1;
   color: $dark;
@@ -295,8 +297,8 @@ $res-radius: 30px;
 .slots-title {
   margin: 0 0 18px;
   color: $accent;
-  font-family: Poppins, sans-serif;
-  font-weight: 800;
+  font-family: $font-main; // Poppins
+  font-weight: 700; // Bold pour les titres de composants
   font-size: clamp(18px, 2vw, 32px);
   letter-spacing: 1px;
 }
@@ -311,8 +313,8 @@ $res-radius: 30px;
   height: 60px;
   border-radius: 21px;
   border: 0;
-  font-family: Poppins, sans-serif;
-  font-weight: 800;
+  font-family: $font-main; // Poppins
+  font-weight: 700; // Bold pour les boutons
   font-size: 20px;
   cursor: pointer;
 

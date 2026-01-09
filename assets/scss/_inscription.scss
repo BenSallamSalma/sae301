@@ -338,7 +338,8 @@ fieldset {
   background: $accent-pink-purple;
   color: #fff;
   font-size: 25px;
-  font-weight: 800;
+  font-family: $font-main; // Poppins
+  font-weight: 700; // Bold pour les boutons
   letter-spacing: 1.25px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;

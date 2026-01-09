@@ -1,4 +1,5 @@
 /* assets/styles/pages/_panier.scss */
+@import 'variables';
 
 .panier-page {
   min-height: 100vh;
@@ -6,6 +7,7 @@
   position: relative;
   overflow: hidden;
   padding: 40px 20px;
+  padding-bottom: 100px; // Espace avant le footer
 }
 
 .panier-hero {
@@ -17,12 +19,30 @@
 
 .panier-title {
   margin: 0;
-  color: #6B5B95; // Violet foncé comme sur l'image
-  font-family: "Lustria", serif;
-  font-size: 64px;
+  color: #fff; // Blanc comme les autres pages
+  font-family: $font-title; // Lobster Two comme les autres pages
+  font-size: clamp(3rem, 8vw, 6rem); // Même taille responsive que les autres pages
   font-weight: 400;
-  text-decoration: underline;
+  letter-spacing: 0.15em; // Même espacement que les autres pages
   text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto;
+  
+  // Ligne en dessous comme les autres pages
+  &::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 608px;
+    max-width: 100%;
+    background: #fff;
+    margin: 10px auto 0;
+  }
 }
 
 .panier-container {
@@ -46,9 +66,9 @@
   right: 76px;
   text-align: right;
   color: #999; // Gris clair comme sur l'image
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 700; // Bold pour les titres de composants
 }
 
 .panier-subtotal-value {
@@ -76,15 +96,15 @@
 
 .panier-item__name {
   color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700; // Bold pour les titres de composants
   flex: 0 0 auto;
 }
 
 .panier-item__date {
   color: #999; // Gris clair comme sur l'image
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 16px;
   font-weight: 400;
   flex: 1;
@@ -101,9 +121,9 @@
 .panier-btn {
   padding: 10px 20px;
   border-radius: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700; // Bold pour les boutons
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -146,14 +166,14 @@
 
 .panier-total__label {
   color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 700; // Bold pour les titres de composants
 }
 
 .panier-total__value {
   color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: "Poppins", sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 700; // Bold pour les titres de composants
 }

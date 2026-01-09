@@ -1,6 +1,8 @@
 /* =========================
    VARIABLES
 ========================= */
+@import 'variables';
+
 $purple: #9286EA;
 $dark: #2E2D3F;
 $accent: #BA68BC;
@@ -25,7 +27,7 @@ $white: #fff;
 }
 
 .admin-title {
-  font-family: CRONDE, serif;
+  font-family: $font-title; // Lustria pour H1
   font-size: 85px;
   color: $white;
   text-align: center;
@@ -48,9 +50,9 @@ $white: #fff;
 }
 
 .admin-section-title {
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 700; // Bold pour les titres de composants
   letter-spacing: 1.6px;
   color: $accent;
   margin-bottom: 20px;
@@ -116,7 +118,7 @@ $white: #fff;
 }
 
 .planning-month {
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 32px;
   font-weight: 700;
   color: $accent;
@@ -126,7 +128,7 @@ $white: #fff;
   display: flex;
   gap: 20px;
   align-items: center;
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-size: 14px;
   font-weight: 600;
 }
@@ -150,7 +152,7 @@ $white: #fff;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-weight: 700;
   color: rgba($dark, .65);
   margin-bottom: 14px;
@@ -169,7 +171,7 @@ $white: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Poppins, sans-serif;
+  font-family: $font-main; // Poppins
   font-weight: 700;
   font-size: 20px;
   color: $dark;

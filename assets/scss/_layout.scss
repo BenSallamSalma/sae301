@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import 'variables';
 
 // Base
 html {
@@ -8,7 +8,6 @@ html {
     @media (max-width: 768px) { font-size: 14px; }
     @media (max-width: 480px) { font-size: 13px; }
 }
-
 
 html, body {
     height: 100%;
@@ -23,8 +22,36 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     width: 100%;
+    font-family: $font-main; // Poppins pour tout le reste
     
     > * { box-sizing: border-box; }
+}
+
+// Styles de base pour les titres avec Lustria
+h1, h2, h3 {
+    font-family: $font-title; // Lustria pour H1, H2, H3
+    font-weight: 400;
+}
+
+h4, h5, h6 {
+    font-family: $font-main; // Poppins pour H4, H5, H6
+}
+
+// Poppins pour tous les éléments de texte par défaut
+p, span, div, a, li, label, input, textarea, select, button {
+    font-family: $font-main; // Poppins par défaut
+}
+
+// Poppins Bold pour les boutons et titres de composants
+button, .btn, [class*="btn"], [class*="button"] {
+    font-family: $font-main;
+    font-weight: 700; // Bold
+}
+
+// Poppins Bold pour les labels et titres de composants
+label, .label, [class*="label"], [class*="title"]:not(h1):not(h2):not(h3) {
+    font-family: $font-main;
+    font-weight: 700; // Bold pour les titres de composants
 }
 
 
@@ -221,7 +248,7 @@ main {
         }
 
         p {
-            font-family: 'Poppins', sans-serif;
+            font-family: $font-main; // Poppins
             font-size: clamp(0.95rem, 1.3vw, 1.0625rem); // Maquette : 17px
             line-height: 1.8;
             color: #ffffff;
@@ -382,7 +409,7 @@ main {
 
             p {
                 color: #000000;
-                font-family: 'Poppins', sans-serif;
+                font-family: $font-main; // Poppins
                 line-height: 1.8;
                 font-size: clamp(0.9rem, 1.3vw, 1.0625rem); // Maquette : 17px
                 margin: 0;
@@ -680,7 +707,7 @@ main {
                 overflow: visible; // Assure que tout le contenu est visible
 
                 h3 {
-                    font-family: 'Inter', sans-serif;
+                    font-family: $font-main; // Poppins
                     font-size: clamp(1.1rem, 2vw, 1.5625rem); // Maquette : 25px
                     font-weight: 700;
                     margin: 0;
@@ -689,7 +716,7 @@ main {
                 }
 
                 p {
-                    font-family: 'Poppins', sans-serif;
+                    font-family: $font-main; // Poppins
                     font-size: clamp(0.8rem, 1.1vw, 0.8125rem); // Maquette : 13px
                     line-height: 1.6;
                     margin: 0;
@@ -704,7 +731,7 @@ main {
                     color: #ffffff;
                     text-decoration: none;
                     justify-content: flex-end;
-                    font-family: 'Inter', sans-serif;
+                    font-family: $font-main; // Poppins
                     font-size: clamp(0.85rem, 1.2vw, 0.9375rem); // Maquette : 15px
                     font-weight: 700;
                     margin-top: auto;

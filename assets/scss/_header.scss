@@ -166,13 +166,6 @@ nav {
                                 background-color: rgba(255, 255, 255, 0.1);
                                 color: #ffffff;
                             }
-
-                            &::after {
-                                content: '›';
-                                margin-left: auto;
-                                font-size: 1.2rem;
-                                opacity: 0.7;
-                            }
                         }
                     }
                 }

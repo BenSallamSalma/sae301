@@ -14,34 +14,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0 40px 0;
+  padding: 40px 0 30px 0;
 }
 
 .panier-title {
   margin: 0;
-  color: #fff; // Blanc comme les autres pages
-  font-family: $font-title; // Lobster Two comme les autres pages
-  font-size: clamp(3rem, 8vw, 6rem); // Même taille responsive que les autres pages
+  color: #6B5B95; // Violet foncé comme sur l'image
+  font-family: $font-title; // Lustria
+  font-size: 64px;
   font-weight: 400;
-  letter-spacing: 0.15em; // Même espacement que les autres pages
+  text-decoration: underline; // Souligné comme sur l'image
   text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: fit-content;
-  margin: 0 auto;
   
-  // Ligne en dessous comme les autres pages
-  &::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 608px;
-    max-width: 100%;
-    background: #fff;
-    margin: 10px auto 0;
+  @media (max-width: $breakpoint-sm) {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 }
 
@@ -58,6 +48,16 @@
   min-height: 600px;
   padding: 60px 76px 60px 76px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 40px 30px 60px 30px;
+  }
+  
+  @media (max-width: $breakpoint-xs) {
+    padding: 30px 20px 60px 20px;
+    border-radius: 20px;
+  }
 }
 
 .panier-subtotal-label {
@@ -68,7 +68,7 @@
   color: #999; // Gris clair comme sur l'image
   font-family: $font-main; // Poppins
   font-size: 17px;
-  font-weight: 700; // Bold pour les titres de composants
+  font-weight: 400; // Regular comme sur l'image
 }
 
 .panier-subtotal-value {
@@ -98,7 +98,7 @@
   color: #2E2D3F; // Gris foncé/noir comme sur l'image
   font-family: $font-main; // Poppins
   font-size: 18px;
-  font-weight: 700; // Bold pour les titres de composants
+  font-weight: 600; // Medium-bold comme sur l'image
   flex: 0 0 auto;
 }
 
@@ -123,10 +123,11 @@
   border-radius: 8px;
   font-family: $font-main; // Poppins
   font-size: 14px;
-  font-weight: 700; // Bold pour les boutons
+  font-weight: 500; // Medium comme sur l'image
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  white-space: nowrap;
   
   &--primary {
     background: #9286EA; // Violet pour le bouton Modifier

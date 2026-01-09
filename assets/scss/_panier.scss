@@ -1,0 +1,159 @@
+/* assets/styles/pages/_panier.scss */
+
+.panier-page {
+  min-height: 100vh;
+  background: #E8E3FF; // Violet clair comme sur l'image
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+.panier-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 40px 0;
+}
+
+.panier-title {
+  margin: 0;
+  color: #6B5B95; // Violet foncé comme sur l'image
+  font-family: "Lustria", serif;
+  font-size: 64px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.panier-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.panier-card {
+  position: relative;
+  background: #fff;
+  border-radius: 30px;
+  min-height: 600px;
+  padding: 60px 76px 60px 76px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.panier-subtotal-label {
+  position: absolute;
+  top: 60px;
+  right: 76px;
+  text-align: right;
+  color: #999; // Gris clair comme sur l'image
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.panier-subtotal-value {
+  color: #999; // Gris clair pour le montant
+  margin-left: 8px;
+}
+
+.panier-items {
+  margin-top: 90px;
+}
+
+.panier-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 2px solid #E8E3FF; // Ligne violette claire séparatrice
+}
+
+.panier-item:first-child {
+  border-top: none;
+}
+
+.panier-item__name {
+  color: #2E2D3F; // Gris foncé/noir comme sur l'image
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex: 0 0 auto;
+}
+
+.panier-item__date {
+  color: #999; // Gris clair comme sur l'image
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  flex: 1;
+  margin-left: 20px;
+}
+
+.panier-item__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.panier-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  
+  &--primary {
+    background: #9286EA; // Violet pour le bouton Modifier
+    color: #fff;
+    
+    &:hover {
+      background: #7A6FD9;
+    }
+  }
+  
+  &--outline {
+    background: #fff; // Blanc pour le bouton Retirer
+    color: #9286EA; // Texte violet
+    border: 2px solid #9286EA; // Bordure violette
+    
+    &:hover {
+      background: #F5F3FF;
+    }
+  }
+}
+
+.panier-item__price {
+  display: none; // Pas visible sur l'image
+}
+
+.panier-total {
+  position: absolute;
+  bottom: 60px;
+  left: 76px;
+  right: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 2px solid #E8E3FF;
+}
+
+.panier-total__label {
+  color: #2E2D3F; // Gris foncé/noir comme sur l'image
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.panier-total__value {
+  color: #2E2D3F; // Gris foncé/noir comme sur l'image
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}

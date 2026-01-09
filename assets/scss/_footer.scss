@@ -139,10 +139,10 @@ footer {
 }
 
 // Responsive Footer
-@media (max-width: $breakpoint-sm) {
+@include respond-to(sm) {
     footer {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: clamp(1.5rem, 4vw, 2rem);
+        gap: clamp(1.2rem, 3vw, 1.5rem);
         padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) !important;
         min-height: auto;
 
@@ -156,12 +156,10 @@ footer {
         .footer-part-1 > div {
             grid-template-columns: 1fr;
         }
-
-        // Les icônes sociales et FAQ sont maintenant dans footer-part-1
     }
 }
 
-@media (max-width: $breakpoint-xs) {
+@include respond-to(xs) {
     footer {
         grid-template-columns: 1fr !important;
         gap: clamp(1rem, 3vw, 1.5rem);
@@ -180,16 +178,14 @@ footer {
         .footer-part-1 > div {
             grid-template-columns: 1fr;
         }
-
-        // Les icônes sociales et FAQ sont maintenant dans footer-part-1
     }
 }
 
-@media (min-width: 769px) and (max-width: $breakpoint-md) {
+@include respond-to(md) {
     footer {
-        grid-template-columns: repeat(3, 1fr) !important; // 3 colonnes seulement
-        gap: 2rem;
-        padding: 2.5rem 2rem 1.5rem !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: clamp(1.5rem, 2.5vw, 2rem);
+        padding: clamp(2rem, 3vw, 2.5rem) clamp(1.5rem, 2.5vw, 2rem) clamp(1.2rem, 2vw, 1.5rem) !important;
         min-height: auto;
     }
 }

@@ -7,26 +7,11 @@
 }
 
 .services-top-band {
-  height: 500px; // Hauteur du bandeau violet
-  background: $accent-purple-light;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  @media (max-width: $breakpoint-sm) {
-    height: 400px;
-  }
-  
-  @media (max-width: $breakpoint-xs) {
-    height: 300px;
-  }
+  @include title-band;
 }
 
 .services-hero {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto;
+  @include container;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -34,34 +19,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 20px;
+  padding: clamp(1.5rem, 4vw, 2rem) 20px;
   box-sizing: border-box;
 }
 
 .services-title {
-  font-family: $font-title;
-  font-size: clamp(3rem, 8vw, 6rem); // 8xl équivalent (~96px)
-  font-weight: 400;
-  letter-spacing: 0.15em; // tracking-widest
-  margin: 0 auto;
-  width: fit-content;
-  color: #fff;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  // Pas de trait en haut, seulement en bas
-  &::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 608px;
-    max-width: 100%;
-    background: #fff;
-    margin: 10px auto 0;
-  }
+  @include page-title(#fff);
 }
 
 .services-intro-section {

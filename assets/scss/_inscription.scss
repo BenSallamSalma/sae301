@@ -6,47 +6,23 @@
 }
 
 .inscription-hero {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding-top: 20px;
+  @include container;
+  padding-top: clamp(15px, 2.5vw, 20px);
   text-align: center;
 }
 
 .inscription-title {
-  font-family: $font-title;
-  font-size: clamp(3.5rem, 8vw, 5.3125rem); // 85px
-  font-weight: 400;
-  color: #fff;
-  text-align: center;
-  margin: 0 auto 40px;
-  width: fit-content;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  &::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 441px;
-    max-width: 100%;
-    background: #fff;
-    margin: 10px auto 0;
-  }
+  @include page-title(#fff);
+  margin-bottom: clamp(30px, 4vw, 40px);
 }
 
 .inscription-card {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto;
-  background: $light-background; // Blanc
-  border-radius: 30px;
+  @include container;
+  background: $light-background;
+  border-radius: clamp(20px, 3vw, 30px);
   box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.30);
-  padding: 66px 74px 20px; // Padding bottom encore réduit pour rapprocher de la section rassurance
-  margin-bottom: 0; // Pas de marge en bas, la section rassurance suit
+  padding: clamp(40px, 6vw, 66px) clamp(30px, 7vw, 74px) clamp(15px, 2.5vw, 20px);
+  margin-bottom: 0;
   
   @media (max-width: $breakpoint-md) {
     padding: 50px 40px 20px;

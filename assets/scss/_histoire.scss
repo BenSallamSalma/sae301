@@ -7,23 +7,17 @@
 
 /* Container responsive */
 .histoire__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  @include container;
 }
 
 /* HERO */
 .histoire__hero {
-  padding: 90px 0 40px 0;
+  padding: clamp(50px, 8vw, 90px) 0 clamp(30px, 4vw, 40px) 0;
   text-align: center;
 }
 
 .histoire__title {
-  margin: 0;
-  font-family: $font-title; // Lustria pour H1, H2, H3
-  font-weight: 400;
-  color: #9286EA;
-  font-size: clamp(40px, 6vw, 85px);
+  @include page-title($accent-purple-light);
 }
 
 /* SECTIONS */
@@ -42,27 +36,38 @@
 /* TITRES */
 .histoire__h2 {
   margin: 0;
-  font-family: $font-title; // Lustria pour H1, H2, H3
+  font-family: $font-title;
   font-weight: 400;
-  letter-spacing: 2.4px;
+  letter-spacing: clamp(1.5px, 0.3vw, 2.4px);
   color: #2E2D3F;
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(20px, 3vw, 40px);
 
   &--white { color: #fff; }
-  &--right { text-align: right; }
+  &--right { 
+    text-align: right;
+    @include respond-to(sm) {
+      text-align: left;
+    }
+  }
 }
 
 .histoire__line {
   display: block;
-  width: 279px;
-  max-width: 60%;
+  width: min(279px, 60%);
   height: 2px;
   background: #2E2D3F;
-  margin: 12px 0 22px 0;
+  margin: clamp(10px, 1.5vw, 12px) 0 clamp(18px, 2.5vw, 22px) 0;
 
   &--white { background: #fff; }
   &--center { margin-left: auto; margin-right: auto; }
-  &--right { margin-left: auto; margin-right: 0; }
+  &--right { 
+    margin-left: auto; 
+    margin-right: 0;
+    @include respond-to(sm) {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
 }
 
 /* SPLIT */
@@ -75,16 +80,24 @@
   &--reverse {
     grid-template-columns: 0.8fr 1.2fr;
   }
+  
+  @include respond-to(sm) {
+    grid-template-columns: 1fr;
+    
+    &--reverse {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
 /* Text */
 .histoire__text {
-  font-family: $font-main; // Poppins
-  font-size: 17px;
+  font-family: $font-main;
+  font-size: clamp(15px, 2vw, 17px);
   line-height: 1.6;
   color: #2E2D3F;
 
-  p { margin: 0 0 16px 0; }
+  p { margin: 0 0 clamp(12px, 2vw, 16px) 0; }
 
   &--white {
     color: #fff;
@@ -188,11 +201,11 @@
 }
 
 .histoire__name {
-  margin: 22px 0 10px 0;
-  font-family: $font-title; // Lustria pour H1, H2, H3
+  margin: clamp(18px, 2.5vw, 22px) 0 clamp(8px, 1.5vw, 10px) 0;
+  font-family: $font-title;
   font-weight: 400;
-  letter-spacing: 2.1px;
-  font-size: clamp(22px, 2.4vw, 35px);
+  letter-spacing: clamp(1.2px, 0.25vw, 2.1px);
+  font-size: clamp(18px, 2.4vw, 35px);
   color: #2E2D3F;
 
   &--white { color: #fff; }
@@ -201,8 +214,8 @@
 .histoire__desc {
   margin: 0 auto;
   max-width: 520px;
-  font-family: $font-main; // Poppins
-  font-size: 17px;
+  font-family: $font-main;
+  font-size: clamp(15px, 2vw, 17px);
   line-height: 1.6;
   color: #2E2D3F;
 
@@ -249,22 +262,12 @@
 /* =========================
    RESPONSIVE BREAKPOINTS
    ========================= */
-@media (max-width: 900px) {
-  .histoire__split,
-  .histoire__split--reverse {
+.histoire__cards2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(25px, 4vw, 90px);
+  
+  @include respond-to(sm) {
     grid-template-columns: 1fr;
-  }
-
-  .histoire__cards2 {
-    grid-template-columns: 1fr;
-  }
-
-  .histoire__h2--right {
-    text-align: left;
-  }
-
-  .histoire__line--right {
-    margin-left: 0;
-    margin-right: auto;
   }
 }

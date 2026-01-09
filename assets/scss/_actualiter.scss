@@ -24,26 +24,22 @@ $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
 .news-page {
     // Titre principal
     .title-main {
-        font-family: $font-title; // Lustria pour H1
-        font-size: 4rem;
-        color: $accent-purple-light;
-        text-align: center;
-        margin: 4rem 0 2rem;
-        @include mobile { font-size: 2.5rem; }
+        @include page-title($accent-purple-light);
+        margin: clamp(3rem, 5vw, 4rem) auto clamp(1.5rem, 2.5vw, 2rem);
     }
 
     .intro-section {
-        max-width: 1048px;
-        margin: 0 auto;
+        @include container;
         text-align: center;
-        font-size: 1.25rem;
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-family: $font-main;
         color: $nav-bg-color;
         line-height: 1.6;
         
         .newsletter-link {
-            font-weight: bold;
+            font-weight: 700;
             display: block;
-            margin-top: 2rem;
+            margin-top: clamp(1.5rem, 2.5vw, 2rem);
             color: $nav-bg-color;
             text-decoration: none;
             &:hover { text-decoration: underline; }
@@ -54,60 +50,64 @@ $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
     .astrological-section {
         background-color: $nav-bg-color;
         color: $text-color-light;
-        padding: 5rem 0;
-        margin-top: 5rem;
+        padding: clamp(3rem, 6vw, 5rem) 0;
+        margin-top: clamp(3rem, 6vw, 5rem);
         text-align: center;
 
         .title-secondary {
             color: $accent-purple-light;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            letter-spacing: clamp(1px, 0.25vw, 2px);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-family: $font-title;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
         }
 
         .moon-main-img {
-            width: 30%;  // Ajuste la taille ici (ex: 150px, 250px)
+            width: clamp(200px, 30vw, 300px);
             height: auto;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
+            margin: clamp(0.5rem, 1.5vw, 1rem) auto clamp(1rem, 2.5vw, 2rem);
         }
 
         .moon-phase-text {
-            font-size: 2.2rem;
-            margin: 2rem 0;
-            span { font-weight: bold; }
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-family: $font-main;
+            margin: clamp(1.5rem, 2.5vw, 2rem) 0;
+            span { font-weight: 700; }
         }
 
-        // CARTE BLANCHE (Celle de l'image)
         .info-card-white {
             @include double-card($light-background, $card-shadow-color);
             color: $text-color-dark;
             max-width: 1000px;
-            margin: 4rem auto;
-            padding: 3rem;
+            margin: clamp(2rem, 5vw, 4rem) auto;
+            padding: clamp(2rem, 4vw, 3rem);
             text-align: left;
-            font-size: 1.5rem;
-            
-            // Assure que le texte reste bien au centre si on réduit la fenêtre
-            width: 90%; 
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-family: $font-main;
+            width: min(90%, 1000px);
 
-            .highlight { color: $accent-purple-light; font-weight: bold; }
+            .highlight { 
+                color: $accent-purple-light; 
+                font-weight: 700; 
+            }
         }
     }
 
     // Section Horoscope
     .horoscope-section {
-        padding: 5rem 0;
+        padding: clamp(3rem, 6vw, 5rem) 0;
         text-align: center;
 
         .zodiac-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1.5rem;
-            margin: 4rem 0;
-            @include tablet { grid-template-columns: repeat(3, 1fr); }
-            @include mobile { grid-template-columns: repeat(2, 1fr); }
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(2rem, 5vw, 4rem) 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
 
             img {
                 width: 100%;
@@ -117,52 +117,66 @@ $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
             }
         }
 
-        // CARTE SOMBRE (Même effet, fond sombre)
         .info-card-dark {
             @include double-card($nav-bg-color, $card-shadow-color);
             color: $text-color-light;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 3rem;
+            padding: clamp(2rem, 4vw, 3rem);
             text-align: left;
-            font-size: 1.5rem;
-            width: 90%;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-family: $font-main;
+            width: min(90%, 1000px);
         }
     }
 
     // Section Articles
     .articles-grid-section {
-        padding: 5rem 0;
+        padding: clamp(3rem, 6vw, 5rem) 0;
         
         .articles-container {
+            @include container;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 3rem;
-            @include tablet { grid-template-columns: 1fr; }
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(25px, 4vw, 40px);
+            margin-top: clamp(2rem, 4vw, 3rem);
         }
 
         .article-card {
             background: $nav-bg-color;
             color: $text-color-light;
-            border-radius: 8px;
+            border-radius: clamp(6px, 1vw, 8px);
             overflow: hidden;
             
             .img-container {
-                height: 460px;
+                height: clamp(250px, 40vw, 460px);
                 background: #D9D9D9;
-                img { width: 100%; height: 100%; object-fit: cover; }
+                img { 
+                    width: 100%; 
+                    height: 100%; 
+                    object-fit: cover; 
+                }
             }
 
             .content {
-                padding: 1.5rem;
-                h2 { font-size: 1.5rem; font-weight: bold; }
-                p { font-size: 0.9rem; opacity: 0.8; margin: 1rem 0; }
+                padding: clamp(1rem, 2vw, 1.5rem);
+                h2 { 
+                    font-size: clamp(1.2rem, 2vw, 1.5rem); 
+                    font-family: $font-main;
+                    font-weight: 700; 
+                }
+                p { 
+                    font-size: clamp(0.85rem, 1.2vw, 0.9rem); 
+                    font-family: $font-main;
+                    opacity: 0.8; 
+                    margin: clamp(0.75rem, 1.5vw, 1rem) 0; 
+                }
                 .read-more {
                     display: block;
                     text-align: right;
                     color: $text-color-light;
-                    font-weight: bold;
+                    font-family: $font-main;
+                    font-weight: 700;
                     text-decoration: none;
                     &:hover { text-decoration: underline; }
                 }
@@ -170,16 +184,17 @@ $card-shadow-color: #9286EA; // Couleur pleine pour l'effet "double carte"
         }
     }
 
-    // Bouton Final
     .btn-cta-more {
         display: block;
         width: fit-content;
-        margin: 4rem auto;
+        margin: clamp(2rem, 5vw, 4rem) auto;
         background-color: $accent-pink-purple;
         color: $text-color-light;
-        padding: 1.2rem 3rem;
+        padding: clamp(1rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3rem);
         border-radius: 30px;
-        font-weight: 800;
+        font-family: $font-main;
+        font-weight: 700;
+        font-size: clamp(16px, 2.5vw, 20px);
         text-decoration: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         transition: $nav-transition;

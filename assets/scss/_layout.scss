@@ -2,11 +2,8 @@
 
 // Base
 html {
-    font-size: 16px;
+    font-size: clamp(14px, 1.5vw, 16px);
     scroll-behavior: smooth;
-    
-    @media (max-width: 768px) { font-size: 14px; }
-    @media (max-width: 480px) { font-size: 13px; }
 }
 
 html, body {
@@ -81,14 +78,14 @@ main {
 .banniere {
     position: relative;
     width: 100%;
-    min-height: 70vh;
-    max-height: 800px;
+    min-height: clamp(45vh, 60vw, 70vh);
+    max-height: clamp(500px, 80vw, 800px);
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #9286EA;
+    background-color: $accent-purple-light;
     background-image: url('../images/banniere_accueil.png');
     background-size: cover;
     background-position: center center;
@@ -96,7 +93,7 @@ main {
     background-attachment: scroll;
 
     img {
-        display: none; // Masquer l'image HTML pour afficher le background-image
+        display: none;
     }
 
     .banniere-text {
@@ -108,7 +105,7 @@ main {
         z-index: 10;
         width: 100%;
         max-width: 100%;
-        padding: 1rem;
+        padding: clamp(0.5rem, 2vw, 1rem);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -117,10 +114,10 @@ main {
         h1 {
             margin: 0;
             color: #ffffff;
-            font-size: clamp(3.5rem, 8vw, 5.3125rem) !important; // Maquette : 85px
+            font-size: clamp(2rem, 8vw, 5.3125rem);
             font-family: $font-title !important;
             font-weight: 400 !important;
-            letter-spacing: 0.15em !important; // Maquette : 2.40px équivalent
+            letter-spacing: clamp(0.08em, 0.15vw, 0.15em);
             line-height: 1;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: fadeIn 0.8s ease-in-out;
@@ -129,7 +126,7 @@ main {
         &::after {
             content: '';
             width: 100%;
-            max-width: 471px;
+            max-width: clamp(250px, 50vw, 471px);
             height: 3px;
             background-color: #ffffff;
             margin-top: 0;
@@ -138,60 +135,17 @@ main {
     }
 }
 
-@media (max-width: $breakpoint-sm) {
-    .banniere {
-        min-height: 55vh;
-        max-height: 600px;
-        .banniere-text {
-            padding: 0.75rem;
-            h1 { 
-                font-size: clamp(2.5rem, 8vw, 4rem);
-                letter-spacing: 0.1em;
-            }
-            &::after {
-                max-width: 300px;
-            }
-        }
-    }
-}
-
-@media (max-width: $breakpoint-xs) {
-    .banniere {
-        min-height: 45vh;
-        max-height: 500px;
-        .banniere-text {
-            padding: 0.5rem;
-            h1 { 
-                font-size: clamp(2rem, 8vw, 3rem);
-                letter-spacing: 0.08em;
-            }
-            &::after {
-                max-width: 250px;
-                height: 2px;
-            }
-        }
-    }
-}
-
-@media (min-width: $breakpoint-lg) {
-    .banniere {
-        min-height: 75vh;
-        max-height: 850px;
-    }
-}
-
 // Section Informations
 .informations {
-    background-color: #2E2D3F; // Couleur exacte de la maquette
+    background-color: $bg-dark-main;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
-    padding: 4rem 3rem;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
     width: 100%;
-    max-width: 100%;
     margin: 0;
-    min-height: 630px;
+    min-height: clamp(400px, 60vw, 630px);
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -203,35 +157,35 @@ main {
         justify-content: center;
         overflow: hidden;
         z-index: 10;
-        width: 368px;
-        height: 479px;
+        width: clamp(280px, 30vw, 368px);
+        height: auto;
+        aspect-ratio: 368 / 479;
 
         img {
-            width: 368px;
-            height: 479px;
+            width: 100%;
+            height: 100%;
             display: block;
             object-fit: cover;
-            // Pas de border-radius ni autres styles décoratifs
         }
     }
 
     .informations-content {
         flex: 1;
-        padding: 0 1rem;
+        padding: 0 clamp(0.5rem, 1.5vw, 1rem);
         color: #ffffff;
         z-index: 10;
         max-width: 657px;
 
         h2 {
             font-family: $font-title !important;
-            font-size: clamp(2rem, 4vw, 2.5rem) !important; // Maquette : 40px
+            font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
             font-weight: 400 !important;
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
             color: #ffffff;
             text-align: left;
             position: relative;
-            padding-bottom: 1.5rem;
-            letter-spacing: 0.15em !important; // Maquette : 2.40px équivalent
+            padding-bottom: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.15em !important;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -239,17 +193,16 @@ main {
 
             &::after {
                 content: '';
-                width: 809px;
-                max-width: 100%;
-                height: 3px; // Maquette : 3px
+                width: min(809px, 100%);
+                height: 3px;
                 background-color: #ffffff;
                 display: block;
             }
         }
 
         p {
-            font-family: $font-main; // Poppins
-            font-size: clamp(0.95rem, 1.3vw, 1.0625rem); // Maquette : 17px
+            font-family: $font-main;
+            font-size: clamp(0.9rem, 1.3vw, 1.0625rem);
             line-height: 1.8;
             color: #ffffff;
             margin: 0;
@@ -257,27 +210,16 @@ main {
             font-weight: 400;
         }
     }
-}
-
-@media (max-width: $breakpoint-sm) {
-    .informations {
+    
+    @include respond-to(sm) {
         flex-direction: column;
         gap: 2rem;
-        padding: 3rem 1.5rem;
         min-height: auto;
 
         .informations-image {
             flex: 1 1 100%;
             max-width: 100%;
             width: 100%;
-            height: auto;
-            
-            img {
-                width: 100%;
-                max-width: 368px;
-                height: auto;
-                aspect-ratio: 368 / 479;
-            }
         }
 
         .informations-content {
@@ -296,32 +238,23 @@ main {
             }
             p { 
                 text-align: center;
-                max-width: 100%;
             }
         }
     }
-}
-
-@media (max-width: $breakpoint-xs) {
-    .informations {
+    
+    @include respond-to(xs) {
         padding: 2rem 1rem;
         gap: 1.5rem;
 
         .informations-image {
-            img {
-                max-width: 280px;
-            }
+            width: min(280px, 100%);
         }
 
         .informations-content {
             h2 {
-                font-size: clamp(1.5rem, 5vw, 2rem);
                 &::after {
                     max-width: 300px;
                 }
-            }
-            p {
-                font-size: clamp(0.9rem, 2vw, 1rem);
             }
         }
     }

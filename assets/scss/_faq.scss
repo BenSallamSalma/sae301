@@ -1,9 +1,8 @@
 @import 'variables';
 
 .faq-page {
-  padding: 110px 24px 80px;
-  max-width: 1200px;
-  margin: 0 auto;
+  @include container;
+  padding: clamp(60px, 10vw, 110px) clamp(15px, 3vw, 24px) clamp(50px, 8vw, 80px);
 }
 
 .faq-hero {
@@ -12,17 +11,15 @@
 }
 
 .faq-title {
-  font-family: $font-title; // Lustria pour H1
-  font-size: clamp(40px, 6vw, 85px);
-  color: #9286EA;
-  margin: 0 0 14px;
+  @include page-title($accent-purple-light);
+  margin-bottom: clamp(10px, 2vw, 14px);
 }
 
 .faq-subtitle {
   max-width: 820px;
   margin: 0 auto;
-  font-family: $font-main; // Poppins
-  font-size: 16px;
+  font-family: $font-main;
+  font-size: clamp(14px, 2vw, 16px);
   line-height: 1.6;
   color: #2E2D3F;
 }
@@ -35,16 +32,16 @@
 .faq-block {
   background: #ffffff;
   border: 2px solid rgba(46, 45, 63, 0.10);
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: clamp(12px, 2vw, 18px);
+  padding: clamp(18px, 3vw, 22px);
 }
 
 .faq-block-title {
-  font-family: $font-title; // Lustria pour H2/H3
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-family: $font-title;
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: clamp(0.5px, 0.1vw, 1px);
   color: #2E2D3F;
-  margin: 0 0 14px;
+  margin: 0 0 clamp(10px, 2vw, 14px);
 }
 
 .faq-item {
@@ -60,14 +57,14 @@
 .faq-question {
   cursor: pointer;
   list-style: none;
-  font-family: $font-main; // Poppins
-  font-size: 16px;
+  font-family: $font-main;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
   color: #2E2D3F;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: clamp(12px, 2vw, 16px);
 }
 
 .faq-question::-webkit-details-marker {
@@ -93,21 +90,16 @@
 }
 
 .faq-answer {
-  margin-top: 10px;
-  font-family: $font-main; // Poppins
-  font-size: 15px;
+  margin-top: clamp(8px, 1.5vw, 10px);
+  font-family: $font-main;
+  font-size: clamp(13px, 1.9vw, 15px);
   line-height: 1.65;
   color: rgba(46, 45, 63, 0.92);
-  padding-right: 6px;
+  padding-right: clamp(4px, 1vw, 6px);
 }
 
-/* un peu plus aéré sur desktop */
-@media (min-width: 900px) {
-  .faq-container {
+.faq-container {
+  @include respond-to(md-up) {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .faq-block {
-    padding: 26px;
   }
 }

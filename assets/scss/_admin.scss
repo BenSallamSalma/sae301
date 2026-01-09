@@ -15,47 +15,38 @@ $white: #fff;
 .admin-page {
   min-height: 100vh;
   background: $purple;
-  padding: 120px 0 80px;
+  padding: clamp(80px, 10vw, 120px) 0 clamp(50px, 8vw, 80px);
 }
 
-/* =========================
-   HERO
-========================= */
 .admin-hero {
-  width: 1200px;
-  margin: 0 auto 60px;
+  @include container;
+  margin-bottom: clamp(40px, 6vw, 60px);
 }
 
 .admin-title {
-  font-family: $font-title; // Lustria pour H1
-  font-size: 85px;
-  color: $white;
-  text-align: center;
-  margin-bottom: 12px;
+  @include page-title($white);
+  margin-bottom: clamp(10px, 1.5vw, 12px);
 }
 
 .admin-title-line {
-  display: block;
-  width: 100%;
-  height: 0;
-  outline: 3px solid $white;
+  display: none; // Remplacé par ::after
 }
 
 /* =========================
    SECTIONS
 ========================= */
 .admin-section {
-  width: 1200px;
-  margin: 0 auto 80px;
+  @include container;
+  margin-bottom: clamp(50px, 8vw, 80px);
 }
 
 .admin-section-title {
-  font-family: $font-main; // Poppins
-  font-size: 32px;
-  font-weight: 700; // Bold pour les titres de composants
-  letter-spacing: 1.6px;
+  font-family: $font-main;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: clamp(1px, 0.2vw, 1.6px);
   color: $accent;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 2.5vw, 20px);
 
   &.muted {
     color: rgba($white, .7);
@@ -67,8 +58,9 @@ $white: #fff;
 ========================= */
 .admin-card {
   background: $white;
-  border-radius: 30px;
-  padding: 30px;
+  border-radius: clamp(20px, 3vw, 30px);
+  padding: clamp(20px, 3vw, 30px);
+  overflow-x: auto;
 }
 
 /* =========================
@@ -118,19 +110,20 @@ $white: #fff;
 }
 
 .planning-month {
-  font-family: $font-main; // Poppins
-  font-size: 32px;
+  font-family: $font-main;
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
   color: $accent;
 }
 
 .planning-legend {
   display: flex;
-  gap: 20px;
+  gap: clamp(12px, 2vw, 20px);
   align-items: center;
-  font-family: $font-main; // Poppins
-  font-size: 14px;
+  font-family: $font-main;
+  font-size: clamp(12px, 1.8vw, 14px);
   font-weight: 600;
+  flex-wrap: wrap;
 }
 
 .legend-item {
@@ -165,15 +158,15 @@ $white: #fff;
 }
 
 .planning-day {
-  height: 75px;
-  border-radius: 21px;
+  height: clamp(50px, 6vw, 75px);
+  border-radius: clamp(15px, 2vw, 21px);
   background: $blue-light;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: $font-main; // Poppins
+  font-family: $font-main;
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(14px, 2.5vw, 20px);
   color: $dark;
 
   &.confirmed {

@@ -5,11 +5,13 @@
 
 {% block main %}
 <div class="panier-page">
-  <header class="panier-hero">
-    <h1 class="panier-title">PANIER</h1>
-  </header>
-
-  <main class="panier-container">
+  <div class="panier-top-band">
+    <header class="panier-hero">
+      <h1 class="panier-title">PANIER</h1>
+    </header>
+  </div>
+  
+  <div class="panier-container">
     <section class="panier-card">
       <div class="panier-subtotal-label">Sous-total <span class="panier-subtotal-value">XX€</span></div>
 
@@ -32,6 +34,6 @@
         <div class="panier-total__value">XX€</div>
       </div>
     </section>
-  </main>
+  </div>
 </div>
 {% endblock %}

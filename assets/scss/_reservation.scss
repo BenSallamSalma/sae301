@@ -20,8 +20,8 @@ $res-radius: 30px;
 }
 
 .reservation-container {
-  width: min(1200px, calc(100% - 48px));
-  margin: 0 auto;
+  @include container;
+  padding: clamp(20px, 4vw, 30px) 20px clamp(40px, 6vw, 60px);
 }
 
 /* =========================
@@ -33,19 +33,12 @@ $res-radius: 30px;
 }
 
 .reservation-title {
-  font-family: $font-title; // Lustria pour H1
-  font-size: clamp(42px, 4.8vw, 85px);
-  font-weight: 400;
-  color: $white;
-  margin: 10px 0 14px;
+  @include page-title($white);
+  margin-bottom: clamp(20px, 3vw, 28px);
 }
 
 .reservation-title-line {
-  width: min(820px, 100%);
-  height: 0;
-  margin: 0 auto;
-  outline: 3px solid $white;
-  outline-offset: -1.5px;
+  display: none; // Remplacé par ::after
 }
 
 /* =========================
@@ -56,12 +49,12 @@ $res-radius: 30px;
 }
 
 .section-label {
-  font-family: $font-main; // Poppins
-  font-size: clamp(22px, 2.4vw, 32px);
-  font-weight: 700; // Bold pour les titres de composants
-  letter-spacing: 1.2px;
+  font-family: $font-main;
+  font-size: clamp(18px, 2.4vw, 32px);
+  font-weight: 700;
+  letter-spacing: clamp(0.8px, 0.15vw, 1.2px);
   color: rgba(255, 255, 255, 0.90);
-  margin: 0 0 10px;
+  margin: 0 0 clamp(8px, 1.5vw, 10px);
 }
 
 /* =========================
@@ -69,9 +62,9 @@ $res-radius: 30px;
 ========================= */
 .card {
   background: $white;
-  border-radius: $res-radius;
+  border-radius: clamp(20px, 3vw, $res-radius);
   box-shadow: 0 4px 4px rgba(0,0,0,0.10);
-  padding: 26px;
+  padding: clamp(20px, 3vw, 26px);
 }
 
 /* =========================
@@ -135,10 +128,10 @@ $res-radius: 30px;
   width: 100%;
   margin-bottom: 20px;
   
-  @media (max-width: 768px) {
+  @include respond-to(sm) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: clamp(12px, 2vw, 15px);
   }
 }
 
@@ -185,11 +178,11 @@ $res-radius: 30px;
   margin-left: auto;
   flex-shrink: 0;
   
-  @media (max-width: 768px) {
+  @include respond-to(sm) {
     justify-content: flex-start;
     margin-left: 0;
     width: 100%;
-    gap: 12px;
+    gap: clamp(10px, 1.5vw, 12px);
   }
 }
 
@@ -232,10 +225,10 @@ $res-radius: 30px;
     color: rgba($dark, 0.65);
   }
   
-  @media (max-width: 768px) {
-    gap: 5px;
+  @include respond-to(sm) {
+    gap: clamp(4px, 0.8vw, 5px);
     div {
-      font-size: 14px;
+      font-size: clamp(12px, 1.8vw, 14px);
     }
   }
 }
@@ -502,22 +495,31 @@ $res-radius: 30px;
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 1000px) {
+@include respond-to(md) {
   .input-grid { grid-template-columns: 1fr; }
   .subject-grid { grid-template-columns: 1fr; }
   .calendar-top { grid-template-columns: 1fr; }
   .legend { justify-content: flex-start; flex-wrap: wrap; }
-  .slots-grid { grid-template-columns: repeat(4, minmax(90px, 1fr)); }
+  .slots-grid { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
 }
 
-@media (max-width: 720px) {
-  .days-header div { font-size: 14px; }
-  .day-btn { height: 60px; font-size: 18px; }
-  .slots-grid { grid-template-columns: repeat(3, minmax(90px, 1fr)); }
+@include respond-to(sm) {
+  .days-header div { font-size: clamp(12px, 1.8vw, 14px); }
+  .day-btn { 
+    height: clamp(50px, 7vw, 60px); 
+    font-size: clamp(16px, 2.2vw, 18px); 
+  }
+  .slots-grid { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
 }
 
-@media (max-width: 520px) {
-  .card { padding: 18px; border-radius: 20px; }
-  .slots-card { padding: 18px; border-radius: 20px; }
-  .slots-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+@include respond-to(xs) {
+  .card { 
+    padding: clamp(15px, 2.5vw, 18px); 
+    border-radius: clamp(15px, 2.5vw, 20px); 
+  }
+  .slots-card { 
+    padding: clamp(15px, 2.5vw, 18px); 
+    border-radius: clamp(15px, 2.5vw, 20px); 
+  }
+  .slots-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
 }

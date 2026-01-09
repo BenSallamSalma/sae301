@@ -1,83 +1,82 @@
-/* assets/styles/pages/_panier.scss */
 @import 'variables';
 
 .panier-page {
   min-height: 100vh;
-  background: #E8E3FF; // Violet clair comme sur l'image
+  background: #E8E3FF;
   position: relative;
-  overflow: hidden;
-  padding: 40px 20px;
-  padding-bottom: 100px; // Espace avant le footer
+  overflow-x: hidden;
+  padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+.panier-top-band {
+  @include title-band;
 }
 
 .panier-hero {
+  @include container;
+  text-align: center;
+  position: relative;
+  z-index: 10;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0 30px 0;
+  padding: clamp(1.5rem, 4vw, 2rem) 20px;
+  box-sizing: border-box;
 }
 
 .panier-title {
-  margin: 0;
-  color: #6B5B95; // Violet foncé comme sur l'image
-  font-family: $font-title; // Lustria
-  font-size: 64px;
-  font-weight: 400;
-  text-decoration: underline; // Souligné comme sur l'image
-  text-align: center;
-  
-  @media (max-width: $breakpoint-sm) {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-  }
-  
-  @media (max-width: $breakpoint-xs) {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
+  @include page-title(#fff);
 }
 
 .panier-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  @include container;
+  padding: clamp(30px, 5vw, 40px) 20px;
 }
 
 .panier-card {
   position: relative;
   background: #fff;
-  border-radius: 30px;
-  min-height: 600px;
-  padding: 60px 76px 60px 76px;
+  border-radius: clamp(20px, 3vw, 30px);
+  min-height: 500px;
+  padding: clamp(30px, 6vw, 60px) clamp(20px, 8vw, 76px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   
-  @media (max-width: $breakpoint-sm) {
-    padding: 40px 30px 60px 30px;
-  }
-  
-  @media (max-width: $breakpoint-xs) {
-    padding: 30px 20px 60px 20px;
-    border-radius: 20px;
+  @include respond-to(sm) {
+    min-height: auto;
+    padding-bottom: clamp(80px, 12vw, 100px);
   }
 }
 
 .panier-subtotal-label {
   position: absolute;
-  top: 60px;
-  right: 76px;
+  top: clamp(40px, 6vw, 60px);
+  right: clamp(20px, 8vw, 76px);
   text-align: right;
-  color: #999; // Gris clair comme sur l'image
-  font-family: $font-main; // Poppins
-  font-size: 17px;
-  font-weight: 400; // Regular comme sur l'image
+  color: #999;
+  font-family: $font-main;
+  font-size: clamp(14px, 2vw, 17px);
+  font-weight: 400;
+  
+  @include respond-to(xs) {
+    position: static;
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 
 .panier-subtotal-value {
-  color: #999; // Gris clair pour le montant
+  color: #999;
   margin-left: 8px;
 }
 
 .panier-items {
-  margin-top: 90px;
+  margin-top: clamp(60px, 10vw, 90px);
+  
+  @include respond-to(xs) {
+    margin-top: 40px;
+  }
 }
 
 .panier-item {
@@ -85,9 +84,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 18px 0;
-  border-bottom: 2px solid #E8E3FF; // Ligne violette claire séparatrice
+  gap: clamp(10px, 2vw, 20px);
+  padding: clamp(12px, 2vw, 18px) 0;
+  border-bottom: 2px solid #E8E3FF;
+  flex-wrap: wrap;
+  
+  @include respond-to(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 }
 
 .panier-item:first-child {
@@ -95,42 +101,59 @@
 }
 
 .panier-item__name {
-  color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: $font-main; // Poppins
-  font-size: 18px;
-  font-weight: 600; // Medium-bold comme sur l'image
+  color: #2E2D3F;
+  font-family: $font-main;
+  font-size: clamp(16px, 2.2vw, 18px);
+  font-weight: 600;
   flex: 0 0 auto;
+  min-width: 0;
+  
+  @include respond-to(sm) {
+    width: 100%;
+  }
 }
 
 .panier-item__date {
-  color: #999; // Gris clair comme sur l'image
-  font-family: $font-main; // Poppins
-  font-size: 16px;
+  color: #999;
+  font-family: $font-main;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 400;
   flex: 1;
-  margin-left: 20px;
+  margin-left: clamp(10px, 2vw, 20px);
+  
+  @include respond-to(sm) {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .panier-item__actions {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
   align-items: center;
   flex: 0 0 auto;
+  flex-wrap: wrap;
+  
+  @include respond-to(sm) {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 .panier-btn {
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
   border-radius: 8px;
-  font-family: $font-main; // Poppins
-  font-size: 14px;
-  font-weight: 500; // Medium comme sur l'image
+  font-family: $font-main;
+  font-size: clamp(12px, 1.8vw, 14px);
+  font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
   white-space: nowrap;
+  cursor: pointer;
   
   &--primary {
-    background: #9286EA; // Violet pour le bouton Modifier
+    background: $accent-purple-light;
     color: #fff;
     
     &:hover {
@@ -139,9 +162,9 @@
   }
   
   &--outline {
-    background: #fff; // Blanc pour le bouton Retirer
-    color: #9286EA; // Texte violet
-    border: 2px solid #9286EA; // Bordure violette
+    background: #fff;
+    color: $accent-purple-light;
+    border: 2px solid $accent-purple-light;
     
     &:hover {
       background: #F5F3FF;
@@ -150,31 +173,31 @@
 }
 
 .panier-item__price {
-  display: none; // Pas visible sur l'image
+  display: none;
 }
 
 .panier-total {
   position: absolute;
-  bottom: 60px;
-  left: 76px;
-  right: 76px;
+  bottom: clamp(40px, 6vw, 60px);
+  left: clamp(20px, 8vw, 76px);
+  right: clamp(20px, 8vw, 76px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   border-top: 2px solid #E8E3FF;
+  
+  @include respond-to(sm) {
+    position: static;
+    margin-top: 30px;
+    padding-top: 20px;
+  }
 }
 
-.panier-total__label {
-  color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: $font-main; // Poppins
-  font-size: 24px;
-  font-weight: 700; // Bold pour les titres de composants
-}
-
+.panier-total__label,
 .panier-total__value {
-  color: #2E2D3F; // Gris foncé/noir comme sur l'image
-  font-family: $font-main; // Poppins
-  font-size: 24px;
-  font-weight: 700; // Bold pour les titres de composants
+  color: #2E2D3F;
+  font-family: $font-main;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
 }

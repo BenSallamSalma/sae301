@@ -123,15 +123,7 @@ main {
             animation: fadeIn 0.8s ease-in-out;
         }
 
-        &::after {
-            content: '';
-            width: 100%;
-            max-width: clamp(250px, 50vw, 471px);
-            height: 3px;
-            background-color: #ffffff;
-            margin-top: 0;
-            display: block;
-        }
+
     }
 }
 

@@ -4,9 +4,9 @@ import './styles/app.css';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
 /* =========================================================
-   MENU DROPDOWN (ton code)
+   MENU DROPDOWN (ton code, inchangé)
 ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+function initDropdown() {
   const dropdownToggle = document.querySelector('.dropdown-toggle');
   const dropdown = document.querySelector('.dropdown');
   const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -113,33 +113,61 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(el);
     });
   }
-});
+}
 
 /* =========================================================
-   CALENDRIER (affiche les jours + dispatch event)
+   CALENDRIER + CRENEAUX (FIX Turbo + anti double init)
 ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
+function initReservationPage() {
   const grid = document.getElementById("calendar-grid");
   const monthEl = document.getElementById("current-month");
   const prevBtn = document.getElementById("prev-month");
   const nextBtn = document.getElementById("next-month");
+
   const hiddenDate = document.getElementById("reservation-date");
   const slotsSection = document.getElementById("slots-section");
   const slotsDateText = document.querySelector(".slots-date");
 
-  if (!grid || !monthEl) return;
+  const slotsGrid = document.getElementById("slots-grid");
+  const fromHidden = document.getElementById("reservation-from");
+  const toHidden = document.getElementById("reservation-to");
+  const fromSelect = document.getElementById("from-time");
+  const toSelect = document.getElementById("to-time");
+  const validateBtn = document.getElementById("validate-slots");
 
+  // Pas sur la page réservation => on sort
+  if (!grid || !monthEl || !prevBtn || !nextBtn) return;
+
+  // ✅ Anti double init (Turbo peut rappeler le code)
+  if (grid.dataset.initialized === "1") return;
+  grid.dataset.initialized = "1";
+
+  /* -------------------------
+     CONFIG
+  ------------------------- */
   let current = new Date(2026, 0, 1);
 
-  const unavailable = new Set(["2026-01-02", "2026-01-03", "2026-01-04", "2026-01-12", "2026-01-21"]);
+  const unavailableDays = new Set([
+    "2026-01-02", "2026-01-03", "2026-01-04", "2026-01-12", "2026-01-21"
+  ]);
 
-  const pad2 = (n) => String(n).padStart(2, "0");
-  const iso = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+  const allSlots = [
+    "08:00","08:30","09:00","09:30","10:00","10:30","11:00",
+    "11:30","12:00","12:30","13:00","13:30","14:00","14:30",
+    "15:00","15:30","16:00","16:30","17:00","17:30","18:00"
+  ];
+
+  const bookedByDate = {
+    "2026-01-24": new Set(["09:30","10:00","10:30","13:30","14:00","14:30","15:00","16:00","16:30"])
+  };
 
   const monthNames = [
     "Janvier","Février","Mars","Avril","Mai","Juin",
     "Juillet","Août","Septembre","Octobre","Novembre","Décembre"
   ];
+
+  const pad2 = (n) => String(n).padStart(2, "0");
+  const iso = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
 
   function formatFr(dateISO) {
     const [y, m, d] = dateISO.split("-");
@@ -149,10 +177,111 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clearSelectedDays() {
-    document.querySelectorAll(".day-btn.is-selected")
-      .forEach(b => b.classList.remove("is-selected"));
+    grid.querySelectorAll(".day-btn.is-selected").forEach(b => b.classList.remove("is-selected"));
   }
 
+  function hideSlots() {
+    if (slotsSection) slotsSection.classList.add("is-hidden");
+    if (slotsGrid) slotsGrid.innerHTML = "";
+    if (hiddenDate) hiddenDate.value = "";
+    if (fromHidden) fromHidden.value = "";
+    if (toHidden) toHidden.value = "";
+    if (fromSelect) fromSelect.value = "";
+    if (toSelect) toSelect.value = "";
+    if (validateBtn) validateBtn.disabled = true;
+  }
+
+  /* -------------------------
+     CRENEAUX
+  ------------------------- */
+  function fillSelect(selectEl) {
+    if (!selectEl) return;
+    selectEl.innerHTML = `<option value="">--:--</option>`;
+    allSlots.forEach(t => {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      selectEl.appendChild(opt);
+    });
+  }
+
+  fillSelect(fromSelect);
+  fillSelect(toSelect);
+
+  function setValidateState() {
+    if (!validateBtn || !fromSelect || !toSelect) return;
+    validateBtn.disabled = !(fromSelect.value && toSelect.value);
+  }
+
+  function renderSlots(dateISO) {
+    if (!slotsGrid) return;
+    slotsGrid.innerHTML = "";
+
+    const booked = bookedByDate[dateISO] ?? new Set();
+
+    allSlots.forEach(time => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "slot-btn";
+      btn.textContent = time;
+
+      if (booked.has(time)) btn.classList.add("is-unavailable");
+
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("is-unavailable")) return;
+
+        slotsGrid.querySelectorAll(".slot-btn.is-selected").forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+
+        if (fromSelect) fromSelect.value = time;
+
+        const idx = allSlots.indexOf(time);
+        const to = allSlots[Math.min(idx + 2, allSlots.length - 1)];
+        if (toSelect) toSelect.value = to;
+
+        setValidateState();
+      });
+
+      slotsGrid.appendChild(btn);
+    });
+  }
+
+  function openSlots(dateISO) {
+    if (slotsSection) slotsSection.classList.remove("is-hidden");
+    if (slotsDateText) slotsDateText.textContent = formatFr(dateISO);
+
+    if (hiddenDate) hiddenDate.value = dateISO;
+    if (fromHidden) fromHidden.value = "";
+    if (toHidden) toHidden.value = "";
+
+    if (fromSelect) fromSelect.value = "";
+    if (toSelect) toSelect.value = "";
+    if (validateBtn) validateBtn.disabled = true;
+
+    renderSlots(dateISO);
+
+    slotsSection?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  if (fromSelect) fromSelect.addEventListener("change", setValidateState);
+  if (toSelect) toSelect.addEventListener("change", setValidateState);
+
+  if (validateBtn) {
+    validateBtn.addEventListener("click", () => {
+      if (!fromSelect?.value || !toSelect?.value) return;
+
+      if (fromHidden) fromHidden.value = fromSelect.value;
+      if (toHidden) toHidden.value = toSelect.value;
+
+      const original = validateBtn.textContent;
+      validateBtn.textContent = "OK ✔";
+      setTimeout(() => (validateBtn.textContent = original), 900);
+    });
+  }
+
+  /* -------------------------
+     CALENDRIER
+  ------------------------- */
   function renderCalendar() {
     grid.innerHTML = "";
 
@@ -164,8 +293,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
 
+    // lundi=0 ... dimanche=6
     const mondayIndex = (firstDay.getDay() + 6) % 7;
 
+    // cases vides avant le 1
     for (let i = 0; i < mondayIndex; i++) {
       const empty = document.createElement("div");
       empty.className = "day-empty";
@@ -182,162 +313,47 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = String(day);
       btn.dataset.date = dateISO;
 
-      if (unavailable.has(dateISO)) btn.classList.add("is-unavailable");
+      if (unavailableDays.has(dateISO)) btn.classList.add("is-unavailable");
 
       btn.addEventListener("click", () => {
         if (btn.classList.contains("is-unavailable")) return;
 
         clearSelectedDays();
         btn.classList.add("is-selected");
-
-        if (hiddenDate) hiddenDate.value = dateISO;
-
-        if (slotsSection) {
-          slotsSection.classList.remove("is-hidden");
-          if (slotsDateText) slotsDateText.textContent = formatFr(dateISO);
-        }
-
-        // ✅ event pour la section créneaux
-        document.dispatchEvent(new CustomEvent("reservation:dateSelected", {
-          detail: { dateISO }
-        }));
+        openSlots(dateISO);
       });
 
       grid.appendChild(btn);
     }
   }
 
-  prevBtn?.addEventListener("click", () => {
+  prevBtn.addEventListener("click", () => {
     current = new Date(current.getFullYear(), current.getMonth() - 1, 1);
+    hideSlots();
     renderCalendar();
   });
 
-  nextBtn?.addEventListener("click", () => {
+  nextBtn.addEventListener("click", () => {
     current = new Date(current.getFullYear(), current.getMonth() + 1, 1);
+    hideSlots();
     renderCalendar();
   });
 
+  hideSlots();
   renderCalendar();
-});
+}
 
 /* =========================================================
-   CRENEAUX (écoute l’event dateSelected)
+   BOOT : DOMContentLoaded + Turbo
+   (c'est LA raison du "je dois refresh")
 ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const slotsSection = document.getElementById("slots-section");
-  const slotsGrid = document.getElementById("slots-grid");
-  const slotsDateText = document.querySelector(".slots-date");
+function boot() {
+  initDropdown();
+  initReservationPage();
+}
 
-  const dateHidden = document.getElementById("reservation-date");
-  const fromHidden = document.getElementById("reservation-from");
-  const toHidden = document.getElementById("reservation-to");
+// Chargement normal
+document.addEventListener('DOMContentLoaded', boot);
 
-  const fromSelect = document.getElementById("from-time");
-  const toSelect = document.getElementById("to-time");
-  const validateBtn = document.getElementById("validate-slots");
-
-  if (!slotsSection || !slotsGrid || !fromSelect || !toSelect || !validateBtn) return;
-
-  const allSlots = [
-    "08:00","08:30","09:00","09:30","10:00","10:30","11:00",
-    "11:30","12:00","12:30","13:00","13:30","14:00","14:30",
-    "15:00","15:30","16:00","16:30","17:00","17:30","18:00"
-  ];
-
-  const bookedByDate = {
-    "2026-01-24": new Set(["09:30","10:00","10:30","13:30","14:00","14:30","15:00","16:00","16:30"])
-  };
-
-  function fillSelect(selectEl) {
-    selectEl.innerHTML = `<option value="">--:--</option>`;
-    allSlots.forEach(t => {
-      const opt = document.createElement("option");
-      opt.value = t;
-      opt.textContent = t;
-      selectEl.appendChild(opt);
-    });
-  }
-
-  fillSelect(fromSelect);
-  fillSelect(toSelect);
-
-  function formatFr(dateISO) {
-    const [y, m, d] = dateISO.split("-");
-    const dt = new Date(Number(y), Number(m) - 1, Number(d));
-    const days = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
-    const months = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
-    return `${days[dt.getDay()]} ${d} ${months[dt.getMonth()]} ${y}`;
-  }
-
-  function setValidateState() {
-    validateBtn.disabled = !(fromSelect.value && toSelect.value);
-  }
-
-  function renderSlots(dateISO) {
-    slotsGrid.innerHTML = "";
-    const booked = bookedByDate[dateISO] ?? new Set();
-
-    allSlots.forEach(time => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "slot-btn";
-      btn.textContent = time;
-
-      if (booked.has(time)) btn.classList.add("is-unavailable");
-
-      btn.addEventListener("click", () => {
-        if (btn.classList.contains("is-unavailable")) return;
-
-        document.querySelectorAll(".slot-btn.is-selected")
-          .forEach(b => b.classList.remove("is-selected"));
-
-        btn.classList.add("is-selected");
-
-        fromSelect.value = time;
-
-        const idx = allSlots.indexOf(time);
-        const to = allSlots[Math.min(idx + 2, allSlots.length - 1)];
-        toSelect.value = to;
-
-        setValidateState();
-      });
-
-      slotsGrid.appendChild(btn);
-    });
-  }
-
-  function openSlots(dateISO) {
-    slotsSection.classList.remove("is-hidden");
-    if (slotsDateText) slotsDateText.textContent = formatFr(dateISO);
-
-    if (dateHidden) dateHidden.value = dateISO;
-
-    fromSelect.value = "";
-    toSelect.value = "";
-    if (fromHidden) fromHidden.value = "";
-    if (toHidden) toHidden.value = "";
-    validateBtn.disabled = true;
-
-    renderSlots(dateISO);
-
-    slotsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  document.addEventListener("reservation:dateSelected", (e) => {
-    openSlots(e.detail.dateISO);
-  });
-
-  fromSelect.addEventListener("change", setValidateState);
-  toSelect.addEventListener("change", setValidateState);
-
-  validateBtn.addEventListener("click", () => {
-    if (!fromSelect.value || !toSelect.value) return;
-
-    if (fromHidden) fromHidden.value = fromSelect.value;
-    if (toHidden) toHidden.value = toSelect.value;
-
-    const original = validateBtn.textContent;
-    validateBtn.textContent = "OK ✔";
-    setTimeout(() => (validateBtn.textContent = original), 900);
-  });
-});
+// Si tu as Turbo activé (Symfony UX Turbo)
+document.addEventListener('turbo:load', boot);
